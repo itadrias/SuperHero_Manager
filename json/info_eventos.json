@@ -1,0 +1,87 @@
+{
+            "0": {
+                "title": "BIENVENIDO",
+                "description": "Selecciona una opción para ver más detalles.",
+                "requirements": ""
+            },
+            "1": {
+                "title": "PATRULLAR",
+                "description": "Vigilancia general de la ciudad. Asigna héroes para patrullar diferentes zonas y prevenir actividades criminales.",
+                "requirements": "Requiere al menos 2 héroes disponibles."
+            },
+            "2": {
+                "title": "LUCHAR", 
+                "description": "Enfrentamiento directo contra villanos. Selecciona héroes para combatir amenazas específicas.",
+                "requirements": "Requiere héroes específicos para cada villano."
+            },
+            "3": {
+                "title": "GESTIONAR",
+                "description": "Administración y coordinación de los recursos de la agencia.",
+                "requirements": "El héroe encargado no debe estar en misión."
+            },
+            "4": {
+                "title": "VER EVENTOS",
+                "description": "Revisa el historial de eventos recientes y el estado actual de la ciudad.",
+                "requirements": ""
+            },
+            "5": {
+                "title": "VIGILANCIA EN CÁRCEL",
+                "description": "Patrulla la prisión de máxima seguridad. Previene fugas de villanos peligrosos.",
+                "requirements": "Requiere héroes con habilidades de contención."
+            },
+            "6": {
+                "title": "ACTIVIDAD SOSPECHOSA", 
+                "description": "Investigación de movimientos inusuales en zonas residenciales. Podría tratarse de preparativos para un crimen.",
+                "requirements": "Requiere héroes con habilidades de detective."
+            },
+            "7": {
+                "title": "SABOTAJE INDUSTRIAL",
+                "description": "Protección de instalaciones críticas contra ataques terroristas o sabotaje.",
+                "requirements": "Requiere héroes técnicos o con vuelo."
+            },
+            "8": {
+                "title": "MÁS OPCIONES",
+                "description": "Ver más opciones de patrullaje disponibles.",
+                "requirements": ""
+            },
+            "9": {
+                "title": "ESCOLTA VIP",
+                "description": "Protección de figuras importantes durante eventos públicos o traslados.",
+                "requirements": "Requiere héroes con habilidades de protección."
+            },
+            "10": {
+                "title": "ROBO EN MUSEO",
+                "description": "Prevención de robos en el museo de la ciudad. Artefactos valiosos en peligro.",
+                "requirements": "Requiere héroes sigilosos o con visión especial."
+            },
+            "11": {
+                "title": "RESCATE POR SECUESTRO",
+                "description": "Operación de rescate de civiles secuestrados por organizaciones criminales.",
+                "requirements": "Requiere equipo de rescate especializado."
+            },
+            "12": {
+                "title": "VOLVER",
+                "description": "Regresar al menú anterior de opciones de patrullaje.",
+                "requirements": ""
+            },
+            "13": {
+                "title": "VILLANO",
+                "description": "Enfrentamiento directo contra un villano poderoso con habilidades especiales. Cada villano requiere una estrategia específica basada en sus debilidades y patrones de ataque únicos.",
+                "requirements": "Cada villano solo aparece ante un conjunto de héroes específicos."
+            },
+            "14": {
+                "title": "BANDA CRIMINAL", 
+                "description": "Combate contra una organización criminal bien estructurada. La banda opera con tácticas coordinadas y roles definidos entre sus miembros.",
+                "requirements": "Mínimo 3 héroes con buena sincronía."
+            },
+            "15": {
+                "title": "ATAQUE A BASE ENEMIGA",
+                "description": "Asalto ofensivo a una base enemiga fuertemente defendida. Operación de infiltración que requiere neutralizar sistemas de seguridad y defensores.",
+                "requirements": "Requiere héroes sigilosos o con visión especial, y equipo especializado."
+            },
+            "16": {
+                "title": "AMENAZA DESCONOCIDA",
+                "description": "Enfrentamiento contra una entidad de origen y capacidades misteriosas. Situación impredecible que exige adaptación constante y análisis rápido.",
+                "requirements": "Envía a tu mejor héroe."
+            }
+        }

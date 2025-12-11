@@ -1,0 +1,169 @@
+<Main_Container>:
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+<classic_button>:
+    size_hint: None, None
+    width: 200
+    pos_hint: {"center_x": 0.5, "center_y":0.5}
+    height: 100
+    text: "b"
+    font_size: 24
+<change_button>:
+    canvas.after:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            rounded_rectangle: (self.x, self.y+4, self.width, self.height-10, 15)
+            width: 2
+<volver_button>:
+    size_hint: None, None
+    size: 200, 100
+    pos: 20, 10
+    canvas.after:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            rounded_rectangle: (self.x, self.y+4, self.width, self.height-10, 15)
+            width: 2
+<sound_button>:
+    size_hint: None, None
+    height: 50
+    width: 50
+    canvas.after:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            circle: (self.center_x, self.center_y, min(self.width, self.height) / 2 +10)
+            width: 2
+<main_button_container>:
+    orientation: "vertical"
+    size_hint: None, None
+    width: 240
+    height: 550
+    spacing: 30
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0.6
+        RoundedRectangle:
+            pos: self.pos[0]-20, self.pos[1]-30
+            size: self.size
+    canvas.after:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            rounded_rectangle: (self.pos[0]-20, self.pos[1]-30, self.width, self.height, 15)
+            width: 2
+<first_patrullar_button_container>:
+    orientation: "vertical"
+    size_hint: None, None
+    width: 240
+    height: 550
+    spacing: 30
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0.6
+        RoundedRectangle:
+            pos: self.pos[0]-20, self.pos[1]-30
+            size: self.size
+    canvas.after:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            rounded_rectangle: (self.pos[0]-20, self.pos[1]-30, self.width, self.height, 15)
+            width: 2
+<second_patrullar_button_container>:
+    orientation: "vertical"
+    size_hint: None, None
+    width: 240
+    height: 550
+    spacing: 30
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0.6
+        RoundedRectangle:
+            pos: self.pos[0]-20, self.pos[1]-30
+            size: self.size
+    canvas.after:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            rounded_rectangle: (self.pos[0]-20, self.pos[1]-30, self.width, self.height, 15)
+            width: 2
+<luchar_button_container>:
+    orientation: "vertical"
+    size_hint: None, None
+    width: 240
+    height: 550
+    spacing: 30
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0.6
+        RoundedRectangle:
+            pos: self.pos[0]-20, self.pos[1]-30
+            size: self.size
+    canvas.after:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            rounded_rectangle: (self.pos[0]-20, self.pos[1]-30, self.width, self.height, 15)
+            width: 2
+<InfoPanel>:
+    orientation: "vertical"
+    size_hint: None, None
+    pos: 350, 100
+    width: 400
+    height: 500
+    padding: 20
+    spacing: 10
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0.7
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [15,]
+    canvas.after:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            rounded_rectangle: (self.x, self.y, self.width, self.height, 15)
+            width: 2
+    Label:
+        id: title_label
+        text: "Informacion del Evento"
+        font_name: 'BebasNeue'
+        font_size: '48sp'
+        size_hint_y: None
+        height: 50
+        color: 1,1,1,1
+        text_size: self.width, None
+        halign: 'center'
+    BoxLayout:
+        size_hint_y: None
+        height: 20
+    Label:
+        id: desc_label
+        text: "Pasa el mouse sobre un evento para ver detalles"
+        font_name: 'OpenSans'
+        font_size: '16sp'
+        text_size: self.width, None
+        halign: 'center'
+        valign: 'top'
+        size_hint_y: None
+        height: 200
+        color: 1,1,1,1
+    Label:
+        id: req_label
+        text: ""
+        font_name: 'OpenSans'
+        font_size: '12sp'
+        text_size: self.width, None
+        halign: 'center'
+        valign: 'top'
+        size_hint_y: None
+        height: 100
+        color: 1,0.8,0.8,1
