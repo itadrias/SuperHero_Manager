@@ -9,5 +9,4 @@ Builder.load_file("main.kv")
 class MyApp(App):
     def build(self):
         return Main_Container()
-
 MyApp().run()
