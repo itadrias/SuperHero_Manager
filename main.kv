@@ -167,3 +167,19 @@
         size_hint_y: None
         height: 100
         color: 1,0.8,0.8,1
+<hero_matrix>:
+    size_hint: None, None
+    size: 500, 650
+    pos: 800, 0
+    canvas.before:
+        Color:
+            rgba: 0,0,0,0.6
+        RoundedRectangle:
+            pos: self.pos[0], self.pos[1]
+            size: self.size
+    canvas.after:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            rounded_rectangle: (self.x, self.y, self.width, self.height, 15)
+            width: 2

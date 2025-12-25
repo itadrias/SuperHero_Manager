@@ -51,6 +51,9 @@ class Chart(FloatLayout):
         self.canvas.add(self.dynamic)
         for x, y in [("Inteligencia", (275, 615)), ("Fuerza", (515, 500)), ("Resistencia", (545, 250)),
                      ("Movilidad", (275, 140)), ("Carisma", (35, 250)), ("Sigilo", (35, 500))]:
+            if special:
+                if x=="Resistencia": y=(515, 250) 
+                x="???"
             self.add_widget(Name(x, y))
         Animation(opacity=1, duration=1, t='out_quad').start(self)
 

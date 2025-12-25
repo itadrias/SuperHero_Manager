@@ -8,6 +8,7 @@ from .utils import *
 from .panel import *
 from .chart import *
 from .sound_manager import *
+from .hero_selector import *
 
 record = []
 
@@ -25,7 +26,7 @@ class Main_Container(FloatLayout):
         self.sound = SoundManager()
         child = sound_button(-1, "images/sound.png")
         self.add_widget(child)
-        child.show((1110, 25))
+        child.show((1280, 25))
         self.sound.play_sound("sounds/main_theme.mp3", 0.7, 1)
     
     def swap_backgrounds(self, link):
@@ -107,7 +108,7 @@ class sound_button(ButtonBehavior, Image):
     def show(self, coords):
         self.pos = coords
         coming_from = -100
-        if self.x == 1110:
+        if self.x == 1280:
             coming_from = 100
         self.y-=coming_from
         self.animation_in_progress = True
@@ -196,7 +197,7 @@ class change_button(ButtonBehavior, Image):
             
         if self.collide_point(*touch.pos):
             self.parent.fade()
-            self.sound.play_sound("sounds/click.mp3", 1.0, 0)
+            self.sound.play_sound("sounds/click.mp3")
             rec = look_for_master(self, Main_Container)
             sound = look_for_child(rec, sound_button)
             if self.id <= 4:
@@ -206,35 +207,38 @@ class change_button(ButtonBehavior, Image):
                     link = "images/mute.png"
                 child = sound_button(-1, link)
                 rec.add_widget(child)
-                child.show((15, 600))
+                child.show((20, 600))
             elif self.id <= 12 and self.id%4:
                 child = Chart()
                 child.draw(self.parameters)
                 rec.add_widget(child)
                 record.append(child)
+                child = hero_matrix()
+                child.show()
+                rec.add_widget(child)
             elif self.id >= 13:
                 child = Chart(self.id == 16)
                 child.draw(self.parameters)
                 rec.add_widget(child)
                 record.append(child)
             if self.id == 1:
-                child = main_button_container(-100, "1", (850, 100))
+                child = main_button_container(-100, "1", (1050, 100))
                 rec.add_widget(child)
                 rec.swap_backgrounds("images/main_background_2.jpg")
                 child.show()
             if self.id == 2:
-                child = main_button_container(-100, "3", (850, 100))
+                child = main_button_container(-100, "3", (1050, 100))
                 rec.add_widget(child)
                 rec.swap_backgrounds("images/main_background_3.jpeg")
                 child.show()
             if self.id == 8:
                 record.pop()
-                child = main_button_container(-100, "2", (850, 100))
+                child = main_button_container(-100, "2", (1050, 100))
                 self.parent.parent.add_widget(child)
                 child.show()
             if self.id == 12:
                 record.pop()
-                child = main_button_container(-100, "1", (850, 100))
+                child = main_button_container(-100, "1", (1050, 100))
                 self.parent.parent.add_widget(child)
                 child.show()
             return True
@@ -258,7 +262,7 @@ class volver_button(ButtonBehavior, Image):
             child = record[-1]
             if len(record) == 1:
                 self.fade()
-            self.sound.play_sound("sounds/click.mp3", 1.0, 0)
+            self.sound.play_sound("sounds/click.mp3")
             for element in self.parent.children:
                 if element == self or isinstance(element, sound_button):
                     continue
@@ -279,7 +283,7 @@ class volver_button(ButtonBehavior, Image):
                 link = "images/mute.png" if rec.sound.sound.volume == 0 else "images/sound.png"
                 child = sound_button(-1, link)
                 self.parent.add_widget(child)
-                child.show((1110, 25))
+                child.show((1280, 25))
                 self.parent.swap_backgrounds("images/main_background_1.jpg")
             
             self.disabled = True

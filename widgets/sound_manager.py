@@ -5,7 +5,7 @@ class SoundManager:
         super().__init__()
         self.sound = ""
 
-    def play_sound(self, link, volume, loop):
+    def play_sound(self, link, volume=1.0, loop=False):
         self.sound = SoundLoader.load(link)
         self.sound.play()
         self.sound.volume=volume
