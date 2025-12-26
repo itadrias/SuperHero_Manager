@@ -182,6 +182,12 @@ class change_button(ButtonBehavior, Image):
             if rec is not None and isinstance(rec.children[index], InfoPanel):
                 self.parent.last = self
                 rec.children[index].opacity=1
+                if self.id <= 4:
+                    rec.children[index].pos=(475, 100)
+                    rec.children[index].size=(400, 500)
+                else:
+                    rec.children[index].pos=(475, 100)
+                    rec.children[index].size=(400, 500)
                 rec.children[index].update_info(self.id)
         elif self.parent.last==self:
             rec = look_for_master(self, Main_Container)
@@ -221,6 +227,9 @@ class change_button(ButtonBehavior, Image):
                 child.draw(self.parameters)
                 rec.add_widget(child)
                 record.append(child)
+                child = hero_matrix()
+                child.show()
+                rec.add_widget(child)
             if self.id == 1:
                 child = main_button_container(-100, "1", (1050, 100))
                 rec.add_widget(child)

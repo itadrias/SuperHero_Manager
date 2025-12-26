@@ -3,9 +3,10 @@ from .utils import read_json
 import json
 
 class InfoPanel(BoxLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    def __init__(self, size=(400, 500), pos=(350, 100)):
+        super().__init__()
         self.opacity=0
+        self.size = size
         def read_json(link):
             with open(link, 'r', encoding='utf-8') as file:
                 return json.load(file)

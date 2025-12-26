@@ -15,9 +15,9 @@
                 "requirements": "Requiere héroes específicos para cada villano."
             },
             "3": {
-                "title": "GESTIONAR",
-                "description": "Administración y coordinación de los recursos de la agencia.",
-                "requirements": "El héroe encargado no debe estar en misión."
+                "title": "AÑADIR",
+                "description": "Herramienta de creación. Permite añadir nuevos recursos, eventos personalizados o definir nuevos tipos de eventos para la simulación.",
+                "requirements": ""
             },
             "4": {
                 "title": "VER EVENTOS",
@@ -83,5 +83,65 @@
                 "title": "AMENAZA DESCONOCIDA",
                 "description": "Enfrentamiento contra una entidad de origen y capacidades misteriosas. Situación impredecible que exige adaptación constante y análisis rápido.",
                 "requirements": "Envía a tu mejor héroe."
+            },
+            "17": {
+                "title": "CELESTIAL",
+                "description": "\nGuardián alado que vigila desde los cielos.\n\n[size=24]Inteligencia: 4/10\nFuerza: 2/10\nResistencia: 3/10\nMovilidad: 1/10\nCarisma: 5/10\nSigilo: 0/10[/size]",
+                "requirements": ""
+            },
+            "18": {
+                "title": "SENTINEL",
+                "description": "\n\nLa espada de la justicia. Combina fuerza marcial con una velocidad implacable.\n\n[size=24]Inteligencia: 0/10\nFuerza: 7/10\nResistencia: 2/10\nMovilidad: 6/10\nCarisma: 0/10\nSigilo: 0/10[/size]",
+                "requirements": ""
+            },
+            "19": {
+                "title": "CÓSMICO",
+                "description": "\nCanaliza la energía de las tormentas y el espacio. Un poder inestable pero devastador.\n\n[size=24]Inteligencia: 2/10\nFuerza: 0/10\nResistencia: 8/10\nMovilidad: 0/10\nCarisma: 0/10\nSigilo: 5/10[/size]",
+                "requirements": ""
+            },
+            "20": {
+                "title": "RADIANTE",
+                "description": "\nBrilla con la intensidad del sol. Ciega a sus enemigos y purifica la corrupción.\n\n[size=24]Inteligencia: 2/10\nFuerza: 0/10\nResistencia: 5/10\nMovilidad: 1/10\nCarisma: 7/10\nSigilo: 0/10[/size]",
+                "requirements": ""
+            },
+            "21": {
+                "title": "ATLANTE",
+                "description": "\nSoberano de las profundidades. Controla las mareas y domina el combate acuático.\n\n[size=24]Inteligencia: 0/10\nFuerza: 7/10\nResistencia: 6/10\nMovilidad: 2/10\nCarisma: 0/10\nSigilo: 3/10[/size]",
+                "requirements": ""
+            },
+            "22": {
+                "title": "DRAGÓN",
+                "description": "\nPosee la furia y el fuego de los dragones ancestrales. Una fuerza de la naturaleza imparable.\n\n[size=24]Inteligencia: 0/10\nFuerza: 8/10\nResistencia: 5/10\nMovilidad: 0/10\nCarisma: 2/10\nSigilo: 0/10[/size]",
+                "requirements": ""
+            },
+            "23": {
+                "title": "RAPTOR",
+                "description": "\nDepredador aéreo de vista aguda. Ataca con precisión letal desde las alturas.\n\n[size=24]Inteligencia: 5/10\nFuerza: 2/10\nResistencia: 0/10\nMovilidad: 7/10\nCarisma: 0/10\nSigilo: 4/10[/size]",
+                "requirements": ""
+            },
+            "24": {
+                "title": "TECNÓPATA",
+                "description": "\nManipula la realidad en fragmentos. Sus habilidades desconciertan y desorientan al enemigo.\n\n[size=24]Inteligencia: 8/10\nFuerza: 0/10\nResistencia: 0/10\nMovilidad: 1/10\nCarisma: 2/10\nSigilo: 6/10[/size]",
+                "requirements": ""
+            },
+            "25": {
+                "title": "COMANDANTE",
+                "description": "\nLa cima de la evolución humana. Estratega brillante y líder nato en el campo de batalla.\n\n[size=24]Inteligencia: 6/10\nFuerza: 1/10\nResistencia: 2/10\nMovilidad: 1/10\nCarisma: 5/10\nSigilo: 0/10[/size]",
+                "requirements": ""
+            },
+            "26": {
+                "title": "JUGGERNAUT",
+                "description": "\nUna defensa impenetrable. Su fuerza y resistencia son legendarias entre los héroes.\n\n[size=24]Inteligencia: 0/10\nFuerza: 6/10\nResistencia: 9/10\nMovilidad: 0/10\nCarisma: 0/10\nSigilo: 0/10[/size]",
+                "requirements": ""
+            },
+            "27": {
+                "title": "VELOCISTA",
+                "description": "\nSiempre avanza hacia arriba. Su agilidad y puntería nunca fallan.\n\n[size=24]Inteligencia: 4/10\nFuerza: 1/10\nResistencia: 1/10\nMovilidad: 9/10\nCarisma: 0/10\nSigilo: 5/10[/size]",
+                "requirements": ""
+            },
+            "28": {
+                "title": "CAMPEÓN",
+                "description": "\nGuerrero divino que decide el destino de las batallas. Símbolo de victoria y honor.\n\n[size=24]Inteligencia: 0/10\nFuerza: 5/10\nResistencia: 5/10\nMovilidad: 0/10\nCarisma: 5/10\nSigilo: 0/10[/size]",
+                "requirements": ""
             }
         }

@@ -8,12 +8,18 @@ from kivy.uix.label import Label
 from kivy.animation import Animation
 from kivy.properties import ListProperty
 from .sound_manager import *
+from .panel import InfoPanel
+from kivy.core.window import Window
+from .utils import *
+from .chart import *
 
 class hero_button(ButtonBehavior, Image):
     border_color = ListProperty([1, 1, 1, 1])
-
-    def __init__(self, link):
+    def __init__(self, id, link):
         super().__init__()
+        self.id = id
+        self.file = read_json("json/events_parameters.json")
+        if(str(self.id) in self.file): self.parameters = self.file[str(self.id)]
         self.source = link
         self.selected = False
         self.size_hint = (None, None)
@@ -22,14 +28,52 @@ class hero_button(ButtonBehavior, Image):
         self.bind(border_color=self.update_canvas)
         self.glow = None
         self.sound = SoundManager()
+        Window.bind(mouse_pos=self.on_mouse_move)
+
+    def on_mouse_move(self, window, mouse_pos):
+        from .buttons import Main_Container
+        if self.disabled:
+            return False
+        if hasattr(self.parent, 'animation_in_progress') and self.parent.animation_in_progress:
+            return False
+        if self.collide_point(*mouse_pos):
+            rec = look_for_master(self, Main_Container)
+            index = get_index_widget(rec, Chart)
+            if rec is not None and isinstance(rec.children[index], Chart):
+                rec.children[index].hide_chart()
+            index = get_index_widget(rec, InfoPanel)
+            if rec is not None and isinstance(rec.children[index], InfoPanel):
+                self.parent.last = self
+                rec.children[index].opacity=1
+                rec.children[index].pos=(100, 125)
+                rec.children[index].size=(600, 525)
+                rec.children[index].update_info(self.id)
+        elif self.parent.last==self:
+            rec = look_for_master(self, Main_Container)
+            index = get_index_widget(rec, InfoPanel)
+            if rec is not None and isinstance(rec.children[index], InfoPanel):
+                    rec.children[index].opacity=0
+            index = get_index_widget(rec, Chart)
+            if rec is not None and isinstance(rec.children[index], Chart):
+                rec.children[index].show_chart()
 
     def on_press(self):
         self.selected = not self.selected
         self.sound.play_sound("sounds/hero_click.mp3", 0.1)
+        for elements in self.parameters:
+            self.parent.sum[elements[0]]+=elements[1] if self.selected else -elements[1]
         if self.selected:
             self.start()
         else:
             self.stop()
+        from .buttons import Main_Container
+        rec = look_for_master(self, Main_Container)
+        index = get_index_widget(rec, Chart)
+        if rec is not None and isinstance(rec.children[index], Chart):
+            parameters = []
+            for i in range(6):
+                parameters.append((i, min(10, self.parent.sum[i])))
+            rec.children[index].draw_chart_over(parameters)
         self.update_canvas()
 
     def start(self):
@@ -61,11 +105,13 @@ class scroll_matrix(GridLayout):
         self.cols = 3
         self.spacing = 5
         self.padding = 25
+        self.last = None
         self.size_hint_y = None
         self.bind(minimum_height=self.setter('height'))
+        self.sum = [0, 0, 0, 0, 0, 0]
 
         for i in range(12):
-            btn = hero_button(link=f'images/heroes/hero_{i+1}.jpg')
+            btn = hero_button(id=i+17, link=f'images/heroes/hero_{i+1}.jpg')
             self.add_widget(btn)
 
 class hero_matrix(FloatLayout):
