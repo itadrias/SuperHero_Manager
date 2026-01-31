@@ -6,7 +6,7 @@ import json
 
 Builder.load_file("main.kv")
 
-class MyApp(App):
+class SuperHeroManager(App):
     def build(self):
         return Main_Container()
-MyApp().run()
+SuperHeroManager().run()

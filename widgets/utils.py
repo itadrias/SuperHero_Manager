@@ -21,3 +21,7 @@ def get_index_widget(master, type):
 def read_json(link):
     with open(link, 'r', encoding='utf-8') as file:
         return json.load(file)
+
+def write_json(link, data):
+    with open(link, 'w', encoding='utf-8') as file:
+        json.dump(data, file, indent=4)

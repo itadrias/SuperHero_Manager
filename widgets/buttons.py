@@ -128,7 +128,7 @@ class sound_button(ButtonBehavior, Image):
         self.animation_in_progress = True
         self.disabled = True
         coming_from = -100
-        if self.x == 1110:
+        if self.x == 1280:
             coming_from = 100
         animation = Animation(y=self.y-coming_from, opacity=0, duration=0.2, t='out_quad')
         animation.bind(on_complete=self.remove)
@@ -145,6 +145,7 @@ class sound_button(ButtonBehavior, Image):
             self.parent.remove_widget(self)
 
     def on_touch_down(self, touch):
+        if touch.button != 'left': return False
         if self.disabled or (hasattr(self.parent, 'animation_in_progress') and self.parent.animation_in_progress):
             return False
         if self.collide_point(*touch.pos):
@@ -196,6 +197,7 @@ class change_button(ButtonBehavior, Image):
                     rec.children[index].opacity=0
     
     def on_touch_down(self, touch):
+        if touch.button != 'left': return super().on_touch_down(touch)
         if self.disabled:
             return False
         if hasattr(self.parent, 'animation_in_progress') and self.parent.animation_in_progress:
@@ -214,26 +216,21 @@ class change_button(ButtonBehavior, Image):
                 child = sound_button(-1, link)
                 rec.add_widget(child)
                 child.show((20, 600))
-            elif self.id <= 12 and self.id%4:
-                child = Chart()
-                child.draw(self.parameters)
-                rec.add_widget(child)
-                record.append(child)
-                child = hero_matrix()
-                child.show()
-                rec.add_widget(child)
-            elif self.id >= 13:
+            elif (self.id <= 12 and self.id%4) or self.id >= 13:
                 child = Chart(self.id == 16)
                 child.draw(self.parameters)
                 rec.add_widget(child)
                 record.append(child)
-                child = hero_matrix()
+                child = selection_matrix()
+                child.show()
+                rec.add_widget(child)
+                child = bottom_button("images/siguiente.jpg")
                 child.show()
                 rec.add_widget(child)
             if self.id == 1:
                 child = main_button_container(-100, "1", (1050, 100))
                 rec.add_widget(child)
-                rec.swap_backgrounds("images/main_background_2.jpg")
+                rec.swap_backgrounds("images/main_background_2.png")
                 child.show()
             if self.id == 2:
                 child = main_button_container(-100, "3", (1050, 100))
@@ -264,6 +261,7 @@ class volver_button(ButtonBehavior, Image):
         self.show()
     
     def on_touch_down(self, touch):
+        if touch.button != 'left': return super().on_touch_down(touch)
         if self.disabled:
             return False
         if self.collide_point(*touch.pos):
@@ -301,6 +299,77 @@ class volver_button(ButtonBehavior, Image):
             animation.start(self)
             return True
         return super().on_touch_down(touch)
+
+    def show(self):
+        self.animation_in_progress = True
+        self.disabled = True
+        animation = Animation(y=self.y+100, opacity=1, duration=0.5, t='out_quad')
+        animation.bind(on_complete=lambda a, w: self._enable(a, w))
+        animation.start(self)
+    
+    def _enable(self, animation, widget):
+        self.animation_in_progress = False
+        self.disabled = False
+
+    def fade(self):
+        if self.animation_in_progress:
+            return
+        
+        self.animation_in_progress = True
+        self.disabled = True
+        animation = Animation(y=self.y-100, opacity=0, duration=0.5, t='out_quad')
+        animation.bind(on_complete=self.remove)
+        animation.start(self)
+
+    def remove(self, animation, widget):
+        if self.parent:
+            self.parent.remove_widget(self)
+
+class bottom_button(ButtonBehavior, Image):
+    def __init__(self, link):
+        super().__init__()
+        self.animation_in_progress = False
+        self.disabled = False
+        self.source = link
+        self.sound = SoundManager()
+        self.show()
+    
+    def on_touch_down(self, touch):
+        if touch.button != 'left': return super().on_touch_down(touch)
+        if self.disabled:
+            return False
+        if self.collide_point(*touch.pos):
+            self.sound.play_sound("sounds/click.mp3")
+            rec = look_for_master(self, Main_Container)
+            index = get_index_widget(rec, selection_matrix)
+            try:
+                rec.children[index].fade()
+            except Exception:
+                pass
+            self.disabled = True
+            animation = Animation(duration=0.5)
+            animation.bind(on_complete=lambda a, w: setattr(self, 'disabled', False))
+            animation.start(self)
+            self.change()
+            return True
+        return super().on_touch_down(touch)
+    
+    def change(self):
+        animation = Animation(opacity=0, duration=0.5, t='out_quad')
+        animation.bind(on_complete=lambda a, w: self._enable(a, w))
+        rec = look_for_master(self, Main_Container)
+        animation.start(self)
+        if self.source == "images/siguiente.jpg": 
+            self.source = "images/atras.jpg"
+            child = selection_matrix(2)
+        else: 
+            self.source = "images/siguiente.jpg"
+            child = selection_matrix(1)
+        child.show()
+        rec.add_widget(child)
+        animation = Animation(opacity=1, duration=0.5, t='out_quad')
+        animation.bind(on_complete=lambda a, w: self._enable(a, w))
+        animation.start(self)
 
     def show(self):
         self.animation_in_progress = True

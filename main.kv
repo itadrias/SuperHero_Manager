@@ -165,7 +165,7 @@
         size_hint_y: None
         height: 100
         color: 1,0.8,0.8,1
-<hero_matrix>:
+<selection_matrix>:
     size_hint: None, None
     size: 500, 650
     pos: 800, 0
@@ -180,4 +180,14 @@
             rgba: 1,1,1,1
         Line:
             rounded_rectangle: (self.x, self.y, self.width, self.height, 15)
+            width: 2
+<bottom_button>:
+    size_hint: None, None
+    size: 200, 100
+    pos: 550, -90
+    canvas.after:
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            rounded_rectangle: (self.x, self.y+4, self.width, self.height-10, 15)
             width: 2

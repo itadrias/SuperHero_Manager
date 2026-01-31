@@ -143,5 +143,65 @@
                 "title": "CAMPEÓN",
                 "description": "\nGuerrero divino que decide el destino de las batallas. Símbolo de victoria y honor.\n\n[size=24]Inteligencia: 0/10\nFuerza: 5/10\nResistencia: 5/10\nMovilidad: 0/10\nCarisma: 5/10\nSigilo: 0/10[/size]",
                 "requirements": ""
+            },
+            "29": {
+                "title": "ANCLA CIBERNÉTICA",
+                "description": "[size=24]Inteligencia: +2\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: +1[/size]",
+                "requirements": ""
+            },
+            "30": {
+                "title": "CHALECO BALÍSTICO",
+                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: +3\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
+                "requirements": ""
+            },
+            "31": {
+                "title": "AURICULARES DE COMUNICACIÓN",
+                "description": "\n\n[size=24]Inteligencia: +1\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: +2\nSigilo: 0[/size]",
+                "requirements": ""
+            },
+            "32": {
+                "title": "GANCHO DE AGARRE",
+                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: +3\nCarisma: 0\nSigilo: 0[/size]",
+                "requirements": ""
+            },
+            "33": {
+                "title": "ENTREGA DE SUMINISTROS",
+                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: +1\nMovilidad: 0\nCarisma: +1\nSigilo: 0[/size]",
+                "requirements": ""
+            },
+            "34": {
+                "title": "POTENCIADOR NEURONAL",
+                "description": "[size=24]Inteligencia: +3\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
+                "requirements": ""
+            },
+            "35": {
+                "title": "JUEGO DE GANZÚAS",
+                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: +3[/size]",
+                "requirements": ""
+            },
+            "36": {
+                "title": "KIT DE MASCARADA",
+                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: +2\nSigilo: +2[/size]",
+                "requirements": ""
+            },
+            "37": {
+                "title": "BOTAS VELOCES",
+                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: +2\nCarisma: 0\nSigilo: 0[/size]",
+                "requirements": ""
+            },
+            "38": {
+                "title": "GUANTELETE CIBERNÉTICO",
+                "description": "[size=24]Inteligencia: +1\nFuerza: +2\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
+                "requirements": ""
+            },
+            "39": {
+                "title": "ESCUDO DE DRONES",
+                "description": "[size=24]Inteligencia: +2\nFuerza: 0\nResistencia: +2\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
+                "requirements": ""
+            },
+            "40": {
+                "title": "BLASÓN DE GUERRA",
+                "description": "[size=24]Inteligencia: 0\nFuerza: +1\nResistencia: +2\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
+                "requirements": ""
             }
         }
