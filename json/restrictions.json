@@ -1,0 +1,254 @@
+{
+    "5": {
+        "forbidden": [],
+        "required": [
+            {
+                "id": 26,
+                "reason": "Requisito de Misión: Para la contención en 'Vigilancia en Cárcel', Juggernaut es indispensable."
+            }
+        ]
+    },
+    "6": {
+        "forbidden": [],
+        "required": [
+            {
+                "id": 25,
+                "reason": "Requisito de Misión: El Comandante es necesario para analizar los patrones de 'Actividad Sospechosa'."
+            }
+        ]
+    },
+    "7": {
+        "forbidden": [],
+        "required": [
+            {
+                "id": 24,
+                "reason": "Requisito de Misión: Solo el Tecnópata puede contrarrestar el 'Sabotaje Industrial'."
+            }
+        ]
+    },
+    "9": {
+        "forbidden": [],
+        "required": [
+            {
+                "id": 18,
+                "reason": "Requisito de Misión: Sentinel es el único confiable para la 'Escolta VIP'."
+            }
+        ]
+    },
+    "10": {
+        "forbidden": [],
+        "required": [
+            {
+                "id": 35,
+                "reason": "Requisito de Misión: Se necesita el Juego de Ganzúas para sortear la seguridad en el 'Robo en Museo'."
+            }
+        ]
+    },
+    "11": {
+        "forbidden": [],
+        "required": [
+            {
+                "id": 31,
+                "reason": "Requisito de Misión: La comunicación es vital en un secuestro. Auriculares requeridos."
+            }
+        ]
+    },
+    "13": {
+        "forbidden": [],
+        "required": [
+            {
+                "id": 28,
+                "reason": "Requisito de Misión: Para enfrentar al 'Villano', necesitas el poder del Campeón."
+            }
+        ]
+    },
+    "14": {
+        "forbidden": [],
+        "required": [
+            {
+                "id": 33,
+                "reason": "Requisito de Misión: Una pelea larga contra la 'Banda Criminal' requiere Entrega de Suministros."
+            }
+        ]
+    },
+    "15": {
+        "forbidden": [],
+        "required": [
+            {
+                "id": 36,
+                "reason": "Requisito de Misión: La infiltración en 'Base Enemiga' exige el Kit de Mascarada."
+            }
+        ]
+    },
+    "16": {
+        "forbidden": [],
+        "required": []
+    },
+    "17": {
+        "forbidden": [
+            {
+                "id": 26,
+                "reason": "Conflicto: Juggernaut es demasiado pesado para que Celestial pueda maniobrar en el aire junto a él."
+            }
+        ],
+        "required": []
+    },
+    "18": {
+        "forbidden": [
+            {
+                "id": 35,
+                "reason": "Conflicto: Sentinel actúa con honor y fuerza bruta, el sigilo del Juego de Ganzúas va en contra de su código."
+            }
+        ],
+        "required": [
+            {
+                "id": 30,
+                "reason": "Requisito: Sentinel necesita el Chaleco Balístico para compensar su baja resistencia natural."
+            }
+        ]
+    },
+    "19": {
+        "forbidden": [
+            {
+                "id": 33,
+                "reason": "Conflicto: La radiación inestable de Cósmico corrompe la comida y medicina de la Entrega de Suministros."
+            },
+            {
+                "id": 31,
+                "reason": "Conflicto: La energía de Cósmico causa interferencia estática constante en los Auriculares."
+            }
+        ],
+        "required": [
+            {
+                "id": 29,
+                "reason": "Requisito: Cósmico requiere el Ancla Cibernética para estabilizar su presencia física en esta dimensión."
+            }
+        ]
+    },
+    "20": {
+        "forbidden": [
+            {
+                "id": 35,
+                "reason": "Conflicto: No puedes ser sigiloso y usar Ganzúas mientras brillas con la intensidad del sol."
+            },
+            {
+                "id": 36,
+                "reason": "Conflicto: El brillo cegador de Radiante arruina cualquier intento de disfraz con el Kit de Mascarada."
+            }
+        ],
+        "required": []
+    },
+    "21": {
+        "forbidden": [
+            {
+                "id": 22,
+                "reason": "Conflicto Elemental: El agua de Atlante y el fuego de Dragón se anulan mutuamente en combate."
+            },
+            {
+                "id": 39,
+                "reason": "Conflicto: La humedad constante de Atlante provoca cortocircuitos en el Escudo de Drones."
+            }
+        ],
+        "required": []
+    },
+    "22": {
+        "forbidden": [
+            {
+                "id": 21,
+                "reason": "Conflicto Elemental: El fuego de Dragón se extingue ante el dominio acuático de Atlante."
+            },
+            {
+                "id": 30,
+                "reason": "Conflicto: El calor extremo de Dragón derrite las fibras del Chaleco Balístico."
+            }
+        ],
+        "required": []
+    },
+    "23": {
+        "forbidden": [
+            {
+                "id": 26,
+                "reason": "Conflicto: Juggernaut es demasiado lento para mantener el ritmo de caza aéreo de Raptor."
+            }
+        ],
+        "required": [
+            {
+                "id": 32,
+                "reason": "Requisito: Raptor utiliza el Gancho de Agarre para realizar giros cerrados en pleno vuelo."
+            }
+        ]
+    },
+    "24": {
+        "forbidden": [
+            {
+                "id": 20,
+                "reason": "Conflicto: La luz intensa de Radiante delata la posición de Tecnópata, impidiendo sus trucos de realidad."
+            }
+        ],
+        "required": [
+            {
+                "id": 34,
+                "reason": "Requisito: Tecnópata necesita el Potenciador Neuronal para procesar la realidad sin dañar su mente."
+            }
+        ]
+    },
+    "25": {
+        "forbidden": [
+            {
+                "id": 19,
+                "reason": "Conflicto: El Comandante no puede establecer estrategias si la radio (Auriculares) falla por la energía de Cósmico."
+            }
+        ],
+        "required": [
+            {
+                "id": 31,
+                "reason": "Requisito: Como líder, Comandante necesita los Auriculares de Comunicación para dar órdenes."
+            }
+        ]
+    },
+    "26": {
+        "forbidden": [
+            {
+                "id": 37,
+                "reason": "Conflicto: El peso masivo de Juggernaut destrozaría las delicadas Botas Veloces."
+            },
+            {
+                "id": 32,
+                "reason": "Conflicto: El Gancho de Agarre no soporta el peso legendario de Juggernaut."
+            }
+        ],
+        "required": [
+            {
+                "id": 33,
+                "reason": "Requisito: El inmenso metabolismo de Juggernaut exige la Entrega de Suministros constante."
+            }
+        ]
+    },
+    "27": {
+        "forbidden": [
+            {
+                "id": 30,
+                "reason": "Conflicto: El Chaleco Balístico es demasiado rígido y limita la aerodinámica del Velocista."
+            },
+            {
+                "id": 26,
+                "reason": "Conflicto: Velocista tendría que detenerse constantemente a esperar al lento Juggernaut."
+            }
+        ],
+        "required": [
+            {
+                "id": 37,
+                "reason": "Requisito: Velocista necesita las Botas Veloces para proteger sus pies de la fricción a alta velocidad."
+            }
+        ]
+    },
+    "28": {
+        "forbidden": [],
+        "required": [
+            {
+                "id": 40,
+                "reason": "Requisito: El Blasón de Guerra es el símbolo indispensable del honor del Campeón."
+            }
+        ]
+    }
+}

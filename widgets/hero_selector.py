@@ -161,8 +161,12 @@ class item_matrix(GridLayout):
             self.add_widget(btn)
 
 class selection_matrix(FloatLayout):
-    def __init__(self, mode=1):
+    def __init__(self, mode=1, clean=False):
         super().__init__()
+        if clean:
+            used.clear()
+            for i in range(len(sum)):
+                sum[i] = 0
         if mode == 1:
             self.add_widget(Label(text="Selecciona tus héroes", font_name='BebasNeue', font_size='40sp', pos=(975, 550), size_hint=(None, None)))
         else:

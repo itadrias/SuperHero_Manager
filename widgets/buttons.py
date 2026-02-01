@@ -1,14 +1,16 @@
-from kivy.uix.button import ButtonBehavior
+from kivy.uix.button import ButtonBehavior, Button
 from kivy.uix.image import Image
 from kivy.animation import Animation
 from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.popup import Popup
 from .utils import *
 from .panel import *
 from .chart import *
 from .sound_manager import *
 from .hero_selector import *
+from .restrictions import *
 
 record = []
 
@@ -207,6 +209,7 @@ class change_button(ButtonBehavior, Image):
             self.parent.fade()
             self.sound.play_sound("sounds/click.mp3")
             rec = look_for_master(self, Main_Container)
+            rec.mission = self.id
             sound = look_for_child(rec, sound_button)
             if self.id <= 4:
                 sound.fade()
@@ -221,11 +224,10 @@ class change_button(ButtonBehavior, Image):
                 child.draw(self.parameters)
                 rec.add_widget(child)
                 record.append(child)
-                child = selection_matrix()
+                child = selection_matrix(1, True)
                 child.show()
                 rec.add_widget(child)
-                child = bottom_button("images/siguiente.jpg")
-                child.show()
+                child = bottom_button("images/siguiente.jpg", rec)
                 rec.add_widget(child)
             if self.id == 1:
                 child = main_button_container(-100, "1", (1050, 100))
@@ -263,7 +265,14 @@ class volver_button(ButtonBehavior, Image):
     def on_touch_down(self, touch):
         if touch.button != 'left': return super().on_touch_down(touch)
         if self.disabled:
-            return False
+            return 
+        rec = look_for_master(self, Main_Container)
+        for child in rec.children:
+            try:
+                if child.disabled:
+                    return False
+            except:
+                pass
         if self.collide_point(*touch.pos):
             record.pop()
             child = record[-1]
@@ -326,12 +335,16 @@ class volver_button(ButtonBehavior, Image):
             self.parent.remove_widget(self)
 
 class bottom_button(ButtonBehavior, Image):
-    def __init__(self, link):
+    def __init__(self, link, rec):
         super().__init__()
+        self.rec = rec
         self.animation_in_progress = False
         self.disabled = False
         self.source = link
         self.sound = SoundManager()
+        child = next_bottom_button("images/ayuda.png")
+        self.rec.add_widget(child)
+        self.brother = child
         self.show()
     
     def on_touch_down(self, touch):
@@ -350,6 +363,7 @@ class bottom_button(ButtonBehavior, Image):
             animation = Animation(duration=0.5)
             animation.bind(on_complete=lambda a, w: setattr(self, 'disabled', False))
             animation.start(self)
+            self.brother.change()
             self.change()
             return True
         return super().on_touch_down(touch)
@@ -367,6 +381,132 @@ class bottom_button(ButtonBehavior, Image):
             child = selection_matrix(1)
         child.show()
         rec.add_widget(child)
+        animation = Animation(opacity=1, duration=0.5, t='out_quad')
+        animation.bind(on_complete=lambda a, w: self._enable(a, w))
+        animation.start(self)
+
+    def show(self):
+        self.animation_in_progress = True
+        self.disabled = True
+        animation = Animation(y=self.y+100, opacity=1, duration=0.5, t='out_quad')
+        animation.bind(on_complete=lambda a, w: self._enable(a, w))
+        animation.start(self)
+    
+    def _enable(self, animation, widget):
+        self.animation_in_progress = False
+        self.disabled = False
+
+    def fade(self):
+        if self.animation_in_progress:
+            return
+        self.brother.fade()
+        self.animation_in_progress = True
+        self.disabled = True
+        animation = Animation(y=self.y-100, opacity=0, duration=0.5, t='out_quad')
+        animation.bind(on_complete=self.remove)
+        animation.start(self)
+
+    def remove(self, animation, widget):
+        if self.parent:
+            self.parent.remove_widget(self)
+
+class next_bottom_button(ButtonBehavior, Image):
+    def __init__(self, link):
+        super().__init__()
+        self.animation_in_progress = False
+        self.disabled = False
+        self.source = link
+        self.sound = SoundManager()
+        self.show()
+    
+    def on_touch_down(self, touch):
+        if touch.button != 'left': return super().on_touch_down(touch)
+        if self.disabled:
+            return False
+        if self.collide_point(*touch.pos):
+            self.sound.play_sound("sounds/click.mp3")
+            if self.source == "images/ayuda.png":
+                layout = BoxLayout(orientation='vertical', spacing=15, padding=25)
+                info_label = Label(
+                    text='Para cumplir la misión, debes seleccionar un equipo y equiparlos, cubriendo los requisitos mínimos (polígono blanco) en el gráfico.\n\n[color=5DA5DB]RESTRICCIONES Y REGLAS:[/color]\n- Algunos héroes [b]no pueden ir juntos[/b] o requieren un [b]compañero específico[/b].\n- Ciertas misiones exigen [b]items obligatorios[/b].\n- Mínimo requieres [b]1 héroe[/b] y [b]1 item[/b].\n\n[i][color=aaaaaa]Tip: Mantén presionado Click Derecho sobre héroes o items para ver sus detalles.[/color][/i]',
+                    halign='center',
+                    valign='middle',
+                    font_name='OpenSans',
+                    font_size='16sp',
+                    markup=True,
+                    color=(0.9, 0.9, 0.9, 1)
+                )
+                info_label.bind(size=info_label.setter('text_size'))
+                layout.add_widget(info_label)
+                close = Button(
+                    text='ENTENDIDO',
+                    size_hint=(1, None),
+                    height=60,
+                    background_normal='',
+                    background_color=(0.17, 0.37, 0.52, 1),
+                    font_name='BebasNeue',
+                    font_size='26sp',
+                    color=(1, 1, 1, 1)
+                )
+                layout.add_widget(close)
+                popup = Popup(
+                    title='INFORMACIÓN DE MISIÓN',
+                    title_font='BebasNeue',
+                    title_size='32sp',
+                    title_align='center',
+                    content=layout,
+                    size_hint=(None, None),
+                    size=(720, 550),
+                    auto_dismiss=False,
+                    separator_color=(0.17, 0.37, 0.52, 1),
+                    background_color=(0.1, 0.1, 0.1, 0.95),
+                    overlay_color=(0, 0, 0, 0.7)
+                )
+                close.bind(on_press=popup.dismiss)
+                popup.open()
+            else:
+                ids = [k for k, v in used.items() if v]
+                rec = look_for_master(self, Main_Container)
+                if hasattr(rec, 'mission'):
+                    ids.append(rec.mission)
+                valid, msg = check_restrictions(ids, sum)
+                if not valid:
+                    popup = Popup(
+                        title='RESTRICCIÓN',
+                        title_font='BebasNeue',
+                        title_size='30sp',
+                        title_align='center',
+                        content=Label(text=msg, text_size=(380, None), halign='center', valign='middle', font_name='OpenSans'),
+                        size_hint=(None, None),
+                        size=(420, 250),
+                        separator_color=(0.8, 0.2, 0.2, 1),
+                        background_color=(0.1, 0.1, 0.1, 0.95),
+                        overlay_color=(0, 0, 0, 0.7)
+                    )
+                    popup.open()
+                    return True
+
+                rec = look_for_master(self, Main_Container)
+                index = get_index_widget(rec, selection_matrix)
+                try:
+                    rec.children[index].fade()
+                except Exception:
+                    pass
+                self.disabled = True
+                animation = Animation(duration=0.5)
+                animation.bind(on_complete=lambda a, w: setattr(self, 'disabled', False))
+                animation.start(self)
+            return True
+        return super().on_touch_down(touch)
+    
+    def change(self):
+        animation = Animation(opacity=0, duration=0.5, t='out_quad')
+        animation.bind(on_complete=lambda a, w: self._enable(a, w))
+        animation.start(self)
+        if self.source == "images/aceptar.png": 
+            self.source = "images/ayuda.png"
+        else: 
+            self.source = "images/aceptar.png"
         animation = Animation(opacity=1, duration=0.5, t='out_quad')
         animation.bind(on_complete=lambda a, w: self._enable(a, w))
         animation.start(self)
