@@ -11,6 +11,7 @@ from .chart import *
 from .sound_manager import *
 from .hero_selector import *
 from .restrictions import *
+from .date_selector import *
 
 record = []
 
@@ -419,6 +420,13 @@ class next_bottom_button(ButtonBehavior, Image):
         self.sound = SoundManager()
         self.show()
     
+    def finished(self):
+        self.disabled = True
+        animation = Animation(duration=0.5)
+        animation.bind(on_complete=lambda a, w: setattr(self, 'disabled', False))
+        animation.start(self)
+        return True
+    
     def on_touch_down(self, touch):
         if touch.button != 'left': return super().on_touch_down(touch)
         if self.disabled:
@@ -485,17 +493,7 @@ class next_bottom_button(ButtonBehavior, Image):
                     )
                     popup.open()
                     return True
-
-                rec = look_for_master(self, Main_Container)
-                index = get_index_widget(rec, selection_matrix)
-                try:
-                    rec.children[index].fade()
-                except Exception:
-                    pass
-                self.disabled = True
-                animation = Animation(duration=0.5)
-                animation.bind(on_complete=lambda a, w: setattr(self, 'disabled', False))
-                animation.start(self)
+                date_selector(self.finished(), ids).open()
             return True
         return super().on_touch_down(touch)
     
