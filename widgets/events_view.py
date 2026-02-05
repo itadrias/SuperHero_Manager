@@ -14,6 +14,9 @@ from .checker import *
 
 
 class AnimatedButton(Button):
+    """
+    Botón que anima su color de fondo cíclicamente (efecto glow).
+    """
     button_color = ListProperty([1, 1, 1, 1])
     
     def __init__(self, base_color, target_color, **kwargs):
@@ -27,9 +30,11 @@ class AnimatedButton(Button):
         self.start_animation()
     
     def update_button_color(self, *args):
+        """Actualiza el color de fondo del botón."""
         self.background_color = self.button_color
     
     def start_animation(self):
+        """Inicia la animación de parpadeo."""
         anim = Animation(button_color=self.target_color, duration=1.0) + \
                Animation(button_color=self.base_color, duration=1.0)
         anim.repeat = True
@@ -37,12 +42,16 @@ class AnimatedButton(Button):
         anim.start(self)
     
     def stop_animation(self):
+        """Detiene la animación."""
         if self.glow:
             self.glow.cancel(self)
             self.glow = None
         self.button_color = self.base_color
 
 class event_view(BoxLayout):
+    """
+    Vista principal que lista los eventos planificados.
+    """
     def __init__(self):
         super().__init__()
         self.orientation = 'vertical'
@@ -70,6 +79,7 @@ class event_view(BoxLayout):
         self.bind(pos=self._update_bg, size=self._update_bg)
 
     def refresh_list(self):
+        """Recarga y renderiza la lista de eventos desde el JSON."""
         self.content.clear_widgets()
         events = read_json("json/events.json")
         info = read_json("json/info_eventos.json")
@@ -149,10 +159,20 @@ class event_view(BoxLayout):
             cont += 1
 
     def _update_item_rect(self, instance, value):
+        """Actualiza la posición y tamaño del rectángulo de fondo de cada ítem."""
         instance.rect.pos = instance.pos
         instance.rect.size = instance.size
 
     def show_details(self, title, description, start, end, resources):
+        """
+        Muestra un popup con los detalles completos del evento seleccionado.
+        Args:
+            title: Título del evento.
+            description: Descripción del evento.
+            start: Fecha de inicio.
+            end: Fecha de fin.
+            resources: Lista de nombres de recursos asignados.
+        """
         content = BoxLayout(orientation='vertical', spacing=15, padding=20)
         details_scroll = ScrollView()
         details_layout = GridLayout(cols=1, spacing=10, size_hint_y=None)
@@ -228,24 +248,33 @@ class event_view(BoxLayout):
         popup.open()
 
     def delete_entry(self, key):
+        """
+        Elimina el evento seleccionado y actualiza la lista.
+        Args:
+            key: Identificador único del evento a eliminar.
+        """
         delete_event(key)
         self.refresh_list()
 
     def _update_bg(self, instance, value):
+        """Actualiza el fondo semitransparente al redimensionar."""
         self.bg_rect.pos = instance.pos
         self.bg_rect.size = instance.size
 
     def show(self):
+        """Muestra la vista de eventos con una animación de fundido."""
         self.opacity = 0
         anim = Animation(opacity=1, duration=0.5)
         anim.start(self)
 
     def fade(self):
+        """Oculta la vista de eventos y la elimina."""
         self.fading_out = True
         anim = Animation(opacity=0, duration=0.5)
         anim.bind(on_complete=self.remove)
         anim.start(self)
 
     def remove(self, animation, widget):
+        """Elimina el widget del padre."""
         if self.parent:
             self.parent.remove_widget(self)

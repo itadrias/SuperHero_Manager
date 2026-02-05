@@ -17,6 +17,10 @@ sum = [0, 0, 0, 0, 0, 0]
 used = {}
 
 class hero_button(ButtonBehavior, Image):
+    """
+    Botón que representa a un héroe o ítem seleccionable.
+    Maneja la lógica de selección, reproducción de sonido y visualización de información.
+    """
     border_color = ListProperty([1, 1, 1, 1])
     def __init__(self, id, link):
         super().__init__()
@@ -41,6 +45,7 @@ class hero_button(ButtonBehavior, Image):
             self.stop()
 
     def on_touch_down(self, touch):
+        """Maneja el clic izquierdo (selección) y derecho (info)."""
         if self.disabled: return False
         
         if touch.button == 'left':
@@ -54,6 +59,7 @@ class hero_button(ButtonBehavior, Image):
         return False
 
     def on_touch_up(self, touch):
+        """Al soltar el clic derecho, oculta la información."""
         if touch.button == 'right' and touch.grab_current is self:
             touch.ungrab(self)
             self.display_info(False)
@@ -61,6 +67,7 @@ class hero_button(ButtonBehavior, Image):
         return super().on_touch_up(touch)
     
     def display_info(self, show):
+        """Muestra u oculta el panel de información detallada."""
         from .buttons import Main_Container
         if self.disabled:
             return
@@ -88,6 +95,10 @@ class hero_button(ButtonBehavior, Image):
                 rec.children[index].show_chart()
 
     def on_press(self):
+        """
+        Alterna el estado de selección del héroe/ítem
+        y actualiza la suma total de atributos.
+        """
         self.selected = not self.selected
         used[self.id] = self.selected
         self.sound.play_sound("sounds/hero_click.mp3", 0.1)
@@ -109,6 +120,7 @@ class hero_button(ButtonBehavior, Image):
     
 
     def start(self):
+        """Inicia la animación de brillo del borde."""
         self.border_color = [204/255, 85/255, 0, 1]
         anim = Animation(border_color=[1, 0.9, 0.5, 1], duration=0.5) + \
                Animation(border_color=[204/255, 85/255, 0, 1], duration=0.5)
@@ -117,12 +129,14 @@ class hero_button(ButtonBehavior, Image):
         anim.start(self)
 
     def stop(self):
+        """Detiene la animación de brillo y restaura el borde original."""
         if self.glow:
             self.glow.cancel(self)
             self.glow = None
         self.border_color = [1, 1, 1, 1]
 
     def update_canvas(self, *args):
+        """Redibuja el borde del botón en el canvas."""
         self.canvas.after.clear()
         with self.canvas.after:
             Color(*self.border_color)
@@ -130,6 +144,9 @@ class hero_button(ButtonBehavior, Image):
             Line(rectangle=(self.x, self.y, self.width, self.height), width=width)
 
 class hero_matrix(GridLayout):
+    """
+    Grilla que contiene todos los botones de selección de héroes.
+    """
     def __init__(self):
         super().__init__()
         self.size_hint = (1, 1)
@@ -146,6 +163,9 @@ class hero_matrix(GridLayout):
             self.add_widget(btn)
 
 class item_matrix(GridLayout):
+    """
+    Grilla que contiene todos los botones de selección de ítems.
+    """
     def __init__(self):
         super().__init__()
         self.size_hint = (1, 1)
@@ -161,7 +181,17 @@ class item_matrix(GridLayout):
             self.add_widget(btn)
 
 class selection_matrix(FloatLayout):
+    """
+    Contenedor principal para la selección de héroes o ítems.
+    Maneja la visualización y alternancia entre matrices.
+    """
     def __init__(self, mode=1, clean=False):
+        """
+        Inicializa el panel de selección.
+        Args:
+            mode: 1 para selección de héroes, 2 para ítems.
+            clean: Si es True, resetea la selección actual.
+        """
         super().__init__()
         if clean:
             used.clear()
@@ -193,6 +223,18 @@ class selection_matrix(FloatLayout):
         animation.start(self)
     
     def fade(self):
+        """Oculta la matriz de selección con animación."""
+        if self.animation_in_progress:
+            return
+        self.animation_in_progress = True
+        self.buttons_disabled = True
+        
+        animation = Animation(opacity=0, duration=0.2, t='out_quad')
+        animation.bind(on_complete=self.remove)
+        animation.start(self)
+    
+    def remove(self, animation, widget):
+        """Elimina el widget del padre."""
         if self.animation_in_progress:
             return
         self.animation_in_progress = True

@@ -147,61 +147,61 @@
     "29": {
         "title": "ANCLA CIBERN\u00c9TICA",
         "description": "[size=24]Inteligencia: +2\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: +1[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 1"
     },
     "30": {
         "title": "CHALECO BAL\u00cdSTICO",
         "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: +3\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 3"
     },
     "31": {
         "title": "AURICULARES DE COMUNICACI\u00d3N",
         "description": "\n\n[size=24]Inteligencia: +1\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: +2\nSigilo: 0[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 5"
     },
     "32": {
         "title": "GANCHO DE AGARRE",
         "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: +3\nCarisma: 0\nSigilo: 0[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 4"
     },
     "33": {
         "title": "ENTREGA DE SUMINISTROS",
         "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: +1\nMovilidad: 0\nCarisma: +1\nSigilo: 0[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 4"
     },
     "34": {
         "title": "POTENCIADOR NEURONAL",
         "description": "[size=24]Inteligencia: +3\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 2"
     },
     "35": {
         "title": "JUEGO DE GANZ\u00daAS",
         "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: +3[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 10"
     },
     "36": {
         "title": "KIT DE MASCARADA",
         "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: +2\nSigilo: +2[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 6"
     },
     "37": {
         "title": "BOTAS VELOCES",
         "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: +2\nCarisma: 0\nSigilo: 0[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 3"
     },
     "38": {
         "title": "GUANTELETE CIBERN\u00c9TICO",
         "description": "[size=24]Inteligencia: +1\nFuerza: +2\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 2"
     },
     "39": {
         "title": "ESCUDO DE DRONES",
         "description": "[size=24]Inteligencia: +2\nFuerza: 0\nResistencia: +2\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 2"
     },
     "40": {
         "title": "BLAS\u00d3N DE GUERRA",
         "description": "[size=24]Inteligencia: 0\nFuerza: +1\nResistencia: +2\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
-        "requirements": ""
+        "requirements": "Cantidad total: 1"
     }
 }

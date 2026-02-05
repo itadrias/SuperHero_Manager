@@ -8,7 +8,17 @@ from datetime import datetime
 from .checker import *
 
 class date_box(BoxLayout):
+    """
+    Widget compuesto que permite la selección de una fecha y hora.
+    Utiliza Spinners para elegir día, mes, año, hora y minutos.
+    """
     def __init__(self, text, date):
+        """
+        Inicializa el selector de fecha.
+        Args:
+            text: Etiqueta descriptiva (ej. "INICIO").
+            date: Objeto datetime para establecer valores por defecto.
+        """
         super().__init__()
         self.orientation = 'vertical'
         self.spacing = 5
@@ -26,7 +36,8 @@ class date_box(BoxLayout):
             text_size=(400, None)
         ))
         controls = BoxLayout(spacing=5)
-
+        
+        # Generación de valores para los spinners
         days = [str(n).zfill(2) for n in range(1, 32)]
         months = [str(n).zfill(2) for n in range(1, 13)]
         years = [str(n) for n in range(date.year, date.year + 100)]
@@ -38,7 +49,8 @@ class date_box(BoxLayout):
         self.year = self.spinner(years, str(date.year))
         self.hour = self.spinner(hours, str(date.hour).zfill(2))
         self.minute = self.spinner(minutes, str(date.minute//5*5).zfill(2))
-
+        
+        # Añade los spinners al layout
         controls.add_widget(self.day)
         controls.add_widget(self.month)
         controls.add_widget(self.year)
@@ -50,6 +62,12 @@ class date_box(BoxLayout):
         self.add_widget(controls)
 
     def spinner(self, values, default):
+        """
+        Crea y retorna un Spinner configurado con el estilo de la aplicación.
+        Args:
+            values: Lista de valores seleccionables.
+            default: Valor por defecto seleccionado.
+        """
         s = Spinner(
             text=default,
             values=values,
@@ -63,6 +81,12 @@ class date_box(BoxLayout):
         return s
         
     def validate_day(self):
+        """
+        Intenta construir un objeto datetime válido con los valores seleccionados.
+        Retorna:
+            datetime object: Si la fecha es válida.
+            None: Si la fecha es inválida (ej. 31 de Febrero).
+        """
         try:
             s = f"{self.year.text}-{self.month.text}-{self.day.text} {self.hour.text}:{self.minute.text}"
             return datetime.strptime(s, "%Y-%m-%d %H:%M")
@@ -70,6 +94,10 @@ class date_box(BoxLayout):
             return None
 
 class date_selector(Popup):
+    """
+    Popup que maneja la selección de fechas de inicio y fin para un evento.
+    Valida conflictos y confirma la creación del evento.
+    """
     def __init__(self, finished, ids):
         super().__init__()
         self.resources = sorted(ids)
@@ -132,6 +160,11 @@ class date_selector(Popup):
         self.content = layout
 
     def validate(self, *args):
+        """
+        Valida que las fechas seleccionadas sean cronológicamente correctas y existan.
+        Retorna:
+            bool: True si las fechas son válidas, False si hay error.
+        """
         start = self.start.validate_day()
         end = self.end.validate_day()
 
@@ -144,6 +177,10 @@ class date_selector(Popup):
         return True
 
     def finding(self, instance):
+        """
+        Busca el siguiente hueco disponible si las fechas seleccionadas están ocupadas.
+        Si encuentra un conflicto, sugiere la siguiente fecha libre.
+        """
         if not self.validate():
             return
         self.error.text=""
@@ -169,6 +206,10 @@ class date_selector(Popup):
         return
     
     def create(self, instance):
+        """
+        Intenta crear el evento con las fechas seleccionadas.
+        Verifica conflictos de recursos y guarda el evento si todo es correcto.
+        """
         if not self.validate():
             return
         self.error.text=""

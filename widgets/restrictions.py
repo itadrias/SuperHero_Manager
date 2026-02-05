@@ -1,31 +1,48 @@
 from .utils import read_json, write_json
 
 def check_restrictions(ids, sum):
+    """
+    Verifica si un grupo de héroes e items cumple con las restricciones de una misión.
+    Args:
+        ids: Lista de IDs de los héroes e items seleccionados.
+        sum: Lista con la suma de atributos de los héroes seleccionados.
+    Retorna:
+        Tuple (bool, str): (True, "") si cumple, (False, "Razón") si no.
+    """
     atributes = ["Fuerza", "Inteligencia", "Sigilo", "Carisma", "Movilidad", "Resistencia"]
     parameters = read_json("json/events_parameters.json")
     try:
+        # El ID más bajo determina el tipo de misión principal
         total = parameters[str(min(ids))]
     except:
         total = parameters["3"]
     ids = sorted(ids)
     founded = False
+    
+    # Verifica si hay al menos un héroe (IDs 17-28)
     for i in ids:
         if i >= 17 and i <= 28:
             founded = True
     if len(ids)==1 or not founded:
         return False, "Requisito de Misión: Necesitas al menos 1 héroe para iniciar el evento."
+    
+    # Manejo especial para el evento con id = 16
     if min(ids)==16:
         if max(ids)>28:
             return False, "Requisito de Misión: No puedes llevar ítems a este evento."
         if len(ids)>2:
             return False, "Requisito de Misión: Solo puedes llevar 1 héroe a este evento. Elige bien."
         return True, ""
+    
     founded = False
+    # Verifica si hay al menos un ítem (IDs 29-40)
     for i in ids:
         if i >= 29 and i <= 40:
             founded = True
     if not founded:
         return False, "Requisito de Misión: Necesitas al menos 1 ítem para iniciar el evento."
+    
+    # Verifica restricciones específicas (prohibiciones y requerimientos)
     restrictions = read_json("json/restrictions.json")
     for id in ids:
         str_id = str(id)
@@ -43,6 +60,8 @@ def check_restrictions(ids, sum):
                     if r_id not in ids:
                         reason = restriction.get("reason")
                         return False, reason
+    
+    # Verifica si la suma de atributos alcanza los requerimientos de la misión
     for x, y in total:
         if sum[x] < y:
             return False, f"Requisito de Atributo: Necesitas al menos {y} puntos en el atributo {atributes[x]} para iniciar el evento."

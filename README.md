@@ -121,7 +121,7 @@ El sistema clasifica las operaciones de campo en dos categorías estratégicas, 
     *   *Ejemplos:* "Enfrentamiento a Villanos", "Amenazas Desconocidas", "Ataque a la Base".
     *   *Enfoque:* Demandan picos extremos de **Fuerza** y **Resistencia**, con requisitos estrictos de equipamiento especializado.
 
-3.  **➕ Añadir (Protocolos Personalizados):**
+3.  **Añadir (Protocolos Personalizados):**
     Esta funcionalidad otorga flexibilidad táctica total al mando. Permite diseñar y registrar situaciones no contempladas en los escenarios estándar.
     *   *Libertad Operativa:* El usuario tiene control total para definir el nombre y los parámetros temporales del evento.
     *   *Integración de Recursos:* Aunque el evento es nuevo, se construye utilizando el **pool de recursos del dominio** (héroes y artefactos existentes). El sistema aplicará las mismas matrices de validación (`checkers`) para asegurar que estos recursos asignados manualmente sean compatibles y estén disponibles.
@@ -202,4 +202,4 @@ python main.py
 <br>
 <br>
 
-Por último, quiero quitarle las gracias a **Sergio**, por siempre estar ahí para darme los peores consejos de este framework.
+Por último, quiero quitarle las gracias a **Sergio**, por siempre estar ahí para darme los peores consejos de este framework. Sin él, seguramente habría terminado más rápido este proyecto.

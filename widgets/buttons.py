@@ -18,11 +18,16 @@ from .events_view import *
 record = []
 
 class Main_Container(FloatLayout):
+    """
+    Contenedor principal de la aplicación.
+    Gestiona la navegación entre menús y el fondo animado.
+    """
     def __init__(self):
         super().__init__()
         self.background = Image(source="images/main_background_1.jpg")
         self.add_widget(self.background)
         
+        # Inicializa el menú principal
         child = main_button_container(100, "0", (100, 100))
         self.add_widget(InfoPanel())
         self.add_widget(child)
@@ -35,6 +40,11 @@ class Main_Container(FloatLayout):
         self.sound.play_sound("sounds/main_theme.mp3", 0.7, 1)
     
     def swap_backgrounds(self, link):
+        """
+        Cambia el fondo de la aplicación con una animación de fundido (fade).
+        Args:
+            link: Ruta de la nueva imagen de fondo.
+        """
         background = Image(source=link, size=(1280, 680))
         background.opacity = 0
         self.add_widget(background, index=20)
@@ -50,6 +60,10 @@ class Main_Container(FloatLayout):
         first.bind(on_complete=remove)
 
 class main_button_container(BoxLayout):
+    """
+    Contenedor para los botones de navegación.
+    Maneja las animaciones de entrada y salida de los menús.
+    """
     def __init__(self, move, events, positions):
         super().__init__()
         self.animation_in_progress = False
@@ -64,11 +78,17 @@ class main_button_container(BoxLayout):
         record.append(self)
     
     def buttons_disabled(self, disabled):
+        """
+        Activa o desactiva todos los botones contenidos en este contenedor.
+        Args:
+            disabled (bool): True para desactivar, False para activar.
+        """
         for child in self.children:
             if isinstance(child, change_button):
                 child.disabled = disabled
     
     def show(self):
+        """Anima la entrada del contenedor de botones."""
         self.animation_in_progress = True
         self.buttons_disabled(True)
         animation = Animation(x=self.x+self.move, opacity=1, duration=0.5, t='out_quad')
@@ -76,10 +96,15 @@ class main_button_container(BoxLayout):
         animation.start(self)
     
     def _enable(self, animation, widget):
+        """
+        Callback que se ejecuta al terminar la animación de entrada.
+        Rehabilita la interacción con los botones.
+        """
         self.animation_in_progress = False
         self.buttons_disabled(False)
     
     def fade(self):
+        """Anima la salida del contenedor de botones y muestra el botón 'volver'."""
         if look_for_child(self.parent, volver_button) is None:
             self.parent.add_widget(volver_button(0, "images/volver.jpg"))
         if self.animation_in_progress:
@@ -97,13 +122,23 @@ class main_button_container(BoxLayout):
             if index < len(rec.children) and isinstance(rec.children[index], InfoPanel):
                 rec.children[index].opacity = 0
         animation.start(self)
+
     
     def remove(self, animation, widget):
         if self.parent:
             self.parent.remove_widget(self)
 
 class sound_button(ButtonBehavior, Image):
+    """
+    Botón que controla el encendido y apagado del sonido global de la aplicación.
+    """
     def __init__(self, id, link):
+        """
+        Inicializa el botón de sonido.
+        Args:
+            id: Identificador del botón.
+            link: Ruta de la imagen del ícono (activado/desactivado).
+        """
         super().__init__()
         self.source = link
         self.id = id
@@ -111,6 +146,11 @@ class sound_button(ButtonBehavior, Image):
         self.animation_in_progress = False
     
     def show(self, coords):
+        """
+        Anima la entrada del botón de sonido.
+        Args:
+            coords: Tupla (x, y) con la posición final.
+        """
         self.pos = coords
         coming_from = -100
         if self.x == 1280:
@@ -123,10 +163,12 @@ class sound_button(ButtonBehavior, Image):
         animation.start(self)
     
     def _enable(self, animation, widget):
+        """Habilita el botón tras la animación."""
         self.animation_in_progress = False
         self.disabled = False
     
     def fade(self):
+        """Oculta el botón con animación."""
         if self.animation_in_progress:
             return
         
@@ -146,10 +188,12 @@ class sound_button(ButtonBehavior, Image):
         animation.start(self)
     
     def remove(self, animation, widget):
+        """Elimina el widget del padre."""
         if self.parent:
             self.parent.remove_widget(self)
 
     def on_touch_down(self, touch):
+        """Maneja el clic para activar/desactivar sonido."""
         if touch.button != 'left': return False
         if self.disabled or (hasattr(self.parent, 'animation_in_progress') and self.parent.animation_in_progress):
             return False
@@ -315,7 +359,16 @@ class change_button(ButtonBehavior, Image):
         return super().on_touch_down(touch)
 
 class volver_button(ButtonBehavior, Image):
+    """
+    Botón para regresar al menú anterior.
+    """
     def __init__(self, id, link):
+        """
+        Inicializa el botón.
+        Args:
+            id: Identificador.
+            link: Ruta de la imagen.
+        """
         super().__init__()
         self.animation_in_progress = False
         self.disabled = False
@@ -325,6 +378,9 @@ class volver_button(ButtonBehavior, Image):
         self.show()
     
     def on_touch_down(self, touch):
+        """
+        Maneja el clic para volver atrás.
+        """
         if touch.button != 'left': return super().on_touch_down(touch)
         if self.disabled:
             return 
@@ -372,6 +428,7 @@ class volver_button(ButtonBehavior, Image):
         return super().on_touch_down(touch)
 
     def show(self):
+        """Muestra el botón."""
         self.animation_in_progress = True
         self.disabled = True
         animation = Animation(y=self.y+100, opacity=1, duration=0.5, t='out_quad')
@@ -379,10 +436,12 @@ class volver_button(ButtonBehavior, Image):
         animation.start(self)
     
     def _enable(self, animation, widget):
+        """Habilita el botón."""
         self.animation_in_progress = False
         self.disabled = False
 
     def fade(self):
+        """Oculta el botón."""
         if self.animation_in_progress:
             return
         
@@ -393,11 +452,21 @@ class volver_button(ButtonBehavior, Image):
         animation.start(self)
 
     def remove(self, animation, widget):
+        """Elimina el botón."""
         if self.parent:
             self.parent.remove_widget(self)
 
 class bottom_button(ButtonBehavior, Image):
+    """
+    Botón siguiente/atrás para navegar entre listas (héroes/items).
+    """
     def __init__(self, link, rec):
+        """
+        Inicializa el botón.
+        Args:
+           link: Imagen.
+           rec: Referencia al contenedor principal.
+        """
         super().__init__()
         self.rec = rec
         self.animation_in_progress = False
@@ -410,6 +479,7 @@ class bottom_button(ButtonBehavior, Image):
         self.show()
     
     def on_touch_down(self, touch):
+        """Maneja el clic para cambiar de lista."""
         if touch.button != 'left': return super().on_touch_down(touch)
         if self.disabled:
             return False
@@ -431,6 +501,7 @@ class bottom_button(ButtonBehavior, Image):
         return super().on_touch_down(touch)
     
     def change(self):
+        """Cambia el estado del botón (siguiente <-> atras)."""
         animation = Animation(opacity=0, duration=0.5, t='out_quad')
         animation.bind(on_complete=lambda a, w: self._enable(a, w))
         rec = look_for_master(self, Main_Container)
@@ -448,6 +519,7 @@ class bottom_button(ButtonBehavior, Image):
         animation.start(self)
 
     def show(self):
+        """Muestra el botón."""
         self.animation_in_progress = True
         self.disabled = True
         animation = Animation(y=self.y+100, opacity=1, duration=0.5, t='out_quad')
@@ -455,10 +527,12 @@ class bottom_button(ButtonBehavior, Image):
         animation.start(self)
     
     def _enable(self, animation, widget):
+        """Habilita el botón."""
         self.animation_in_progress = False
         self.disabled = False
 
     def fade(self):
+        """Oculta el botón."""
         if self.animation_in_progress:
             return
         self.brother.fade()
@@ -469,11 +543,20 @@ class bottom_button(ButtonBehavior, Image):
         animation.start(self)
 
     def remove(self, animation, widget):
+        """Elimina el botón."""
         if self.parent:
             self.parent.remove_widget(self)
 
 class next_bottom_button(ButtonBehavior, Image):
+    """
+    Botón de acción secundaria (Ayuda / Aceptar misión).
+    """
     def __init__(self, link):
+        """
+        Inicializa el botón.
+        Args:
+           link: Ruta de la imagen.
+        """
         super().__init__()
         self.animation_in_progress = False
         self.disabled = False
@@ -482,6 +565,7 @@ class next_bottom_button(ButtonBehavior, Image):
         self.show()
     
     def finished(self):
+        """Bloquea el botón temporalmente."""
         self.disabled = True
         animation = Animation(duration=0.5)
         animation.bind(on_complete=lambda a, w: setattr(self, 'disabled', False))
@@ -489,6 +573,7 @@ class next_bottom_button(ButtonBehavior, Image):
         return True
     
     def on_touch_down(self, touch):
+        """Maneja el clic (Ayuda o Confirmación)."""
         if touch.button != 'left': return super().on_touch_down(touch)
         if self.disabled:
             return False
@@ -560,6 +645,7 @@ class next_bottom_button(ButtonBehavior, Image):
         return super().on_touch_down(touch)
     
     def change(self):
+        """Alterna entre Ayuda y Aceptar."""
         animation = Animation(opacity=0, duration=0.5, t='out_quad')
         animation.bind(on_complete=lambda a, w: self._enable(a, w))
         animation.start(self)
@@ -572,6 +658,7 @@ class next_bottom_button(ButtonBehavior, Image):
         animation.start(self)
 
     def show(self):
+        """Muestra el botón."""
         self.animation_in_progress = True
         self.disabled = True
         animation = Animation(y=self.y+100, opacity=1, duration=0.5, t='out_quad')
@@ -579,10 +666,12 @@ class next_bottom_button(ButtonBehavior, Image):
         animation.start(self)
     
     def _enable(self, animation, widget):
+        """Habilita el botón."""
         self.animation_in_progress = False
         self.disabled = False
 
     def fade(self):
+        """Oculta el botón."""
         if self.animation_in_progress:
             return
         
@@ -593,5 +682,6 @@ class next_bottom_button(ButtonBehavior, Image):
         animation.start(self)
 
     def remove(self, animation, widget):
+        """Elimina el botón."""
         if self.parent:
             self.parent.remove_widget(self)

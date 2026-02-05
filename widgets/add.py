@@ -5,7 +5,16 @@ from kivy.uix.popup import Popup
 from kivy.uix.textinput import TextInput
 
 class enter_name(BoxLayout):
+    """
+    Popup personalizado para ingresar el nombre de un evento personalizado.
+    Hereda de BoxLayout.
+    """
     def __init__(self, callback=None):
+        """
+        Inicializa el widget y muestra el popup.
+        Args:
+            callback: Función a llamar con el nombre ingresado al aceptar.
+        """
         super().__init__()
         self.callback = callback
         self.orientation = 'vertical'
@@ -39,6 +48,7 @@ class enter_name(BoxLayout):
         self.popup = popup
         layout.add_widget(self.name)
         rec = BoxLayout(spacing=10)
+        # Botones de Cancelar y Aceptar
         rec.add_widget(Button(
             text='CANCELAR',
             background_normal='',
@@ -59,6 +69,7 @@ class enter_name(BoxLayout):
         popup.open()
 
     def cancel(self, instance):
+        """Cierra el popup sin realizar acción."""
         self.name.text = ""
         self.popup.dismiss()
         if self.parent:
@@ -67,6 +78,7 @@ class enter_name(BoxLayout):
             self.callback("")
 
     def to_accept(self, instance):
+        """Valida la entrada y llama al callback con el nombre."""
         name = self.name.text
         if name.strip():
             self.popup.dismiss()
