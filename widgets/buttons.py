@@ -12,6 +12,8 @@ from .sound_manager import *
 from .hero_selector import *
 from .restrictions import *
 from .date_selector import *
+from .add import *
+from .events_view import *
 
 record = []
 
@@ -171,6 +173,7 @@ class change_button(ButtonBehavior, Image):
         self.id = id
         self.is_hovered = False
         self.file = read_json("json/events_parameters.json")
+        self.events_name = read_json("json/info_eventos.json")
         if(str(self.id) in self.file): self.parameters = self.file[str(self.id)]
         self.sound = SoundManager()
         Window.bind(mouse_pos=self.on_mouse_move)
@@ -221,7 +224,7 @@ class change_button(ButtonBehavior, Image):
                 rec.add_widget(child)
                 child.show((20, 600))
             elif (self.id <= 12 and self.id%4) or self.id >= 13:
-                child = Chart(self.id == 16)
+                child = Chart(self.id == 16, 0, self.events_name[str(self.id)]["title"])
                 child.draw(self.parameters)
                 rec.add_widget(child)
                 record.append(child)
@@ -240,6 +243,64 @@ class change_button(ButtonBehavior, Image):
                 rec.add_widget(child)
                 rec.swap_backgrounds("images/main_background_3.jpeg")
                 child.show()
+            if self.id == 3:
+                self.events_name = read_json("json/info_eventos.json")
+                def on_name_entered(name):
+                    if name.strip():
+                        child = Chart(self.id == 16, 0, name)
+                        rec.add_widget(child)
+                        record.append(child)
+                        child = selection_matrix(1, True)
+                        child.show()
+                        rec.add_widget(child)
+                        founded = False
+                        cont = 0
+                        for i in self.events_name:
+                            if name == self.events_name[str(i)]["title"]:
+                                rec.mission = cont
+                                founded = True
+                            cont += 1
+                        if not founded:
+                            rec.mission = len(self.events_name)
+                            self.events_name[rec.mission] ={
+                                "title": name,
+                                "description": "Evento personalizado.",
+                                "requirements": ""
+                            }
+                            write_json("json/info_eventos.json", self.events_name)
+                    else:
+                        for child in [child for child in rec.children]:
+                            if isinstance(child, (bottom_button, next_bottom_button, sound_button)):
+                                rec.remove_widget(child)
+                        
+                        record.clear()
+                        child = sound_button(-1, "images/sound.png")
+                        rec.add_widget(child)
+                        child.show((1280, 25))
+                        child = main_button_container(100, "0", (100, 100))
+                        rec.add_widget(child)
+                        rec.swap_backgrounds("images/main_background_1.jpg")
+                        child.show()
+                        btn = look_for_child(rec, volver_button)
+                        if btn:
+                            rec.remove_widget(btn)
+                
+                child = enter_name(callback=on_name_entered)
+                rec.add_widget(child)
+                rec.swap_backgrounds("images/main_background_3.jpeg")
+                child = bottom_button("images/siguiente.jpg", rec)
+                rec.add_widget(child)
+            if self.id == 4:
+                child = event_view()
+                rec.add_widget(child)
+                rec.swap_backgrounds("images/main_background_2.png")
+                child.show()
+                record.append(child)
+                btn = look_for_child(rec, volver_button)
+                if btn:
+                    rec.remove_widget(btn)
+                    rec.add_widget(btn)
+
             if self.id == 8:
                 record.pop()
                 child = main_button_container(-100, "2", (1050, 100))
@@ -436,7 +497,7 @@ class next_bottom_button(ButtonBehavior, Image):
             if self.source == "images/ayuda.png":
                 layout = BoxLayout(orientation='vertical', spacing=15, padding=25)
                 info_label = Label(
-                    text='Para cumplir la misión, debes seleccionar un equipo y equiparlos, cubriendo los requisitos mínimos (polígono blanco) en el gráfico.\n\n[color=5DA5DB]RESTRICCIONES Y REGLAS:[/color]\n- Algunos héroes [b]no pueden ir juntos[/b] o requieren un [b]compañero específico[/b].\n- Ciertas misiones exigen [b]items obligatorios[/b].\n- Mínimo requieres [b]1 héroe[/b] y [b]1 item[/b].\n\n[i][color=aaaaaa]Tip: Mantén presionado Click Derecho sobre héroes o items para ver sus detalles.[/color][/i]',
+                    text='Para cumplir la misión, debes seleccionar un equipo y equiparlos, cubriendo los requisitos mínimos (polígono blanco) en el gráfico.\n\n[color=8B3A3A]RESTRICCIONES Y REGLAS:[/color]\n- Algunos héroes [b]no pueden ir juntos[/b] o requieren un [b]compañero específico[/b].\n- Ciertas misiones exigen [b]items obligatorios[/b].\n- Mínimo requieres [b]1 héroe[/b] y [b]1 item[/b].\n\n[i][color=aaaaaa]Tip: Mantén presionado Click Derecho sobre héroes o items para ver sus detalles.[/color][/i]',
                     halign='center',
                     valign='middle',
                     font_name='OpenSans',
@@ -464,8 +525,9 @@ class next_bottom_button(ButtonBehavior, Image):
                     title_align='center',
                     content=layout,
                     size_hint=(None, None),
-                    size=(720, 550),
+                    size=(720, 600),
                     auto_dismiss=False,
+                    title_color = (0.17, 0.37, 0.52, 1),
                     separator_color=(0.17, 0.37, 0.52, 1),
                     background_color=(0.1, 0.1, 0.1, 0.95),
                     overlay_color=(0, 0, 0, 0.7)

@@ -179,4 +179,5 @@ class date_selector(Popup):
             self.error.text = f"Conflicto de horario (Ocupado hasta {overlap})" 
             return
         self.error.text = f"Evento creado exitosamente" 
-        create_event(start, end, self.resources[0], self.resources)
+        if max(self.resources) > 40: create_event(start, end, max(self.resources), self.resources)
+        else: create_event(start, end, self.resources[0], self.resources)

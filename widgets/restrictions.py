@@ -1,11 +1,18 @@
-from .utils import read_json
+from .utils import read_json, write_json
 
 def check_restrictions(ids, sum):
     atributes = ["Fuerza", "Inteligencia", "Sigilo", "Carisma", "Movilidad", "Resistencia"]
     parameters = read_json("json/events_parameters.json")
-    total = parameters[str(min(ids))]
+    try:
+        total = parameters[str(min(ids))]
+    except:
+        total = parameters["3"]
     ids = sorted(ids)
-    if len(ids)==1 or max(ids[1::]) < 17 or min(ids) > 28:
+    founded = False
+    for i in ids:
+        if i >= 17 and i <= 28:
+            founded = True
+    if len(ids)==1 or not founded:
         return False, "Requisito de Misión: Necesitas al menos 1 héroe para iniciar el evento."
     if min(ids)==16:
         if max(ids)>28:
@@ -13,7 +20,11 @@ def check_restrictions(ids, sum):
         if len(ids)>2:
             return False, "Requisito de Misión: Solo puedes llevar 1 héroe a este evento. Elige bien."
         return True, ""
-    if max(ids) < 29:
+    founded = False
+    for i in ids:
+        if i >= 29 and i <= 40:
+            founded = True
+    if not founded:
         return False, "Requisito de Misión: Necesitas al menos 1 ítem para iniciar el evento."
     restrictions = read_json("json/restrictions.json")
     for id in ids:

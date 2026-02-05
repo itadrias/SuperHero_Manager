@@ -29,7 +29,7 @@ class Name(Label):
         self.font_name = 'BebasNeue'
 
 class Chart(FloatLayout):
-    def __init__(self, special = False, anim = 0):
+    def __init__(self, special = False, anim = 0, event_name = ""):
         super().__init__()
         self.special = special
         self.event = None

@@ -1,207 +1,207 @@
 {
-            "0": {
-                "title": "BIENVENIDO",
-                "description": "Selecciona una opción para ver más detalles.",
-                "requirements": ""
-            },
-            "1": {
-                "title": "PATRULLAR",
-                "description": "Vigilancia general de la ciudad. Asigna héroes para patrullar diferentes zonas y prevenir actividades criminales.",
-                "requirements": "Requiere al menos 2 héroes disponibles."
-            },
-            "2": {
-                "title": "LUCHAR", 
-                "description": "Enfrentamiento directo contra villanos. Selecciona héroes para combatir amenazas específicas.",
-                "requirements": "Requiere héroes específicos para cada villano."
-            },
-            "3": {
-                "title": "AÑADIR",
-                "description": "Herramienta de creación. Permite añadir nuevos recursos, eventos personalizados o definir nuevos tipos de eventos para la simulación.",
-                "requirements": ""
-            },
-            "4": {
-                "title": "VER EVENTOS",
-                "description": "Revisa el historial de eventos recientes y el estado actual de la ciudad.",
-                "requirements": ""
-            },
-            "5": {
-                "title": "VIGILANCIA EN CÁRCEL",
-                "description": "Patrulla la prisión de máxima seguridad. Previene fugas de villanos peligrosos.",
-                "requirements": "Requiere héroes con habilidades de contención."
-            },
-            "6": {
-                "title": "ACTIVIDAD SOSPECHOSA", 
-                "description": "Investigación de movimientos inusuales en zonas residenciales. Podría tratarse de preparativos para un crimen.",
-                "requirements": "Requiere héroes con habilidades de detective."
-            },
-            "7": {
-                "title": "SABOTAJE INDUSTRIAL",
-                "description": "Protección de instalaciones críticas contra ataques terroristas o sabotaje.",
-                "requirements": "Requiere héroes técnicos o con vuelo."
-            },
-            "8": {
-                "title": "MÁS OPCIONES",
-                "description": "Ver más opciones de patrullaje disponibles.",
-                "requirements": ""
-            },
-            "9": {
-                "title": "ESCOLTA VIP",
-                "description": "Protección de figuras importantes durante eventos públicos o traslados.",
-                "requirements": "Requiere héroes con habilidades de protección."
-            },
-            "10": {
-                "title": "ROBO EN MUSEO",
-                "description": "Prevención de robos en el museo de la ciudad. Artefactos valiosos en peligro.",
-                "requirements": "Requiere héroes sigilosos o con visión especial."
-            },
-            "11": {
-                "title": "RESCATE POR SECUESTRO",
-                "description": "Operación de rescate de civiles secuestrados por organizaciones criminales.",
-                "requirements": "Requiere equipo de rescate especializado."
-            },
-            "12": {
-                "title": "VOLVER",
-                "description": "Regresar al menú anterior de opciones de patrullaje.",
-                "requirements": ""
-            },
-            "13": {
-                "title": "VILLANO",
-                "description": "Enfrentamiento directo contra un villano poderoso con habilidades especiales. Cada villano requiere una estrategia específica basada en sus debilidades y patrones de ataque únicos.",
-                "requirements": "Cada villano solo aparece ante un conjunto de héroes específicos."
-            },
-            "14": {
-                "title": "BANDA CRIMINAL", 
-                "description": "Combate contra una organización criminal bien estructurada. La banda opera con tácticas coordinadas y roles definidos entre sus miembros.",
-                "requirements": "Mínimo 3 héroes con buena sincronía."
-            },
-            "15": {
-                "title": "ATAQUE A BASE ENEMIGA",
-                "description": "Asalto ofensivo a una base enemiga fuertemente defendida. Operación de infiltración que requiere neutralizar sistemas de seguridad y defensores.",
-                "requirements": "Requiere héroes sigilosos o con visión especial, y equipo especializado."
-            },
-            "16": {
-                "title": "AMENAZA DESCONOCIDA",
-                "description": "Enfrentamiento contra una entidad de origen y capacidades misteriosas. Situación impredecible que exige adaptación constante y análisis rápido.",
-                "requirements": "Envía a tu mejor héroe."
-            },
-            "17": {
-                "title": "CELESTIAL",
-                "description": "\nGuardián alado que vigila desde los cielos.\n\n[size=24]Inteligencia: 4/10\nFuerza: 2/10\nResistencia: 3/10\nMovilidad: 1/10\nCarisma: 5/10\nSigilo: 0/10[/size]",
-                "requirements": ""
-            },
-            "18": {
-                "title": "SENTINEL",
-                "description": "\n\nLa espada de la justicia. Combina fuerza marcial con una velocidad implacable.\n\n[size=24]Inteligencia: 0/10\nFuerza: 7/10\nResistencia: 2/10\nMovilidad: 6/10\nCarisma: 0/10\nSigilo: 0/10[/size]",
-                "requirements": ""
-            },
-            "19": {
-                "title": "CÓSMICO",
-                "description": "\nCanaliza la energía de las tormentas y el espacio. Un poder inestable pero devastador.\n\n[size=24]Inteligencia: 2/10\nFuerza: 0/10\nResistencia: 8/10\nMovilidad: 0/10\nCarisma: 0/10\nSigilo: 5/10[/size]",
-                "requirements": ""
-            },
-            "20": {
-                "title": "RADIANTE",
-                "description": "\nBrilla con la intensidad del sol. Ciega a sus enemigos y purifica la corrupción.\n\n[size=24]Inteligencia: 2/10\nFuerza: 0/10\nResistencia: 5/10\nMovilidad: 1/10\nCarisma: 7/10\nSigilo: 0/10[/size]",
-                "requirements": ""
-            },
-            "21": {
-                "title": "ATLANTE",
-                "description": "\nSoberano de las profundidades. Controla las mareas y domina el combate acuático.\n\n[size=24]Inteligencia: 0/10\nFuerza: 7/10\nResistencia: 6/10\nMovilidad: 2/10\nCarisma: 0/10\nSigilo: 3/10[/size]",
-                "requirements": ""
-            },
-            "22": {
-                "title": "DRAGÓN",
-                "description": "\nPosee la furia y el fuego de los dragones ancestrales. Una fuerza de la naturaleza imparable.\n\n[size=24]Inteligencia: 0/10\nFuerza: 8/10\nResistencia: 5/10\nMovilidad: 0/10\nCarisma: 2/10\nSigilo: 0/10[/size]",
-                "requirements": ""
-            },
-            "23": {
-                "title": "RAPTOR",
-                "description": "\nDepredador aéreo de vista aguda. Ataca con precisión letal desde las alturas.\n\n[size=24]Inteligencia: 5/10\nFuerza: 2/10\nResistencia: 0/10\nMovilidad: 7/10\nCarisma: 0/10\nSigilo: 4/10[/size]",
-                "requirements": ""
-            },
-            "24": {
-                "title": "TECNÓPATA",
-                "description": "\nManipula la realidad en fragmentos. Sus habilidades desconciertan y desorientan al enemigo.\n\n[size=24]Inteligencia: 8/10\nFuerza: 0/10\nResistencia: 0/10\nMovilidad: 1/10\nCarisma: 2/10\nSigilo: 6/10[/size]",
-                "requirements": ""
-            },
-            "25": {
-                "title": "COMANDANTE",
-                "description": "\nLa cima de la evolución humana. Estratega brillante y líder nato en el campo de batalla.\n\n[size=24]Inteligencia: 6/10\nFuerza: 1/10\nResistencia: 2/10\nMovilidad: 1/10\nCarisma: 5/10\nSigilo: 0/10[/size]",
-                "requirements": ""
-            },
-            "26": {
-                "title": "JUGGERNAUT",
-                "description": "\nUna defensa impenetrable. Su fuerza y resistencia son legendarias entre los héroes.\n\n[size=24]Inteligencia: 0/10\nFuerza: 6/10\nResistencia: 9/10\nMovilidad: 0/10\nCarisma: 0/10\nSigilo: 0/10[/size]",
-                "requirements": ""
-            },
-            "27": {
-                "title": "VELOCISTA",
-                "description": "\nSiempre avanza hacia adelante. Su agilidad y puntería nunca fallan.\n\n[size=24]Inteligencia: 4/10\nFuerza: 1/10\nResistencia: 1/10\nMovilidad: 9/10\nCarisma: 0/10\nSigilo: 5/10[/size]",
-                "requirements": ""
-            },
-            "28": {
-                "title": "CAMPEÓN",
-                "description": "\nGuerrero divino que decide el destino de las batallas. Símbolo de victoria y honor.\n\n[size=24]Inteligencia: 0/10\nFuerza: 5/10\nResistencia: 5/10\nMovilidad: 0/10\nCarisma: 5/10\nSigilo: 0/10[/size]",
-                "requirements": ""
-            },
-            "29": {
-                "title": "ANCLA CIBERNÉTICA",
-                "description": "[size=24]Inteligencia: +2\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: +1[/size]",
-                "requirements": ""
-            },
-            "30": {
-                "title": "CHALECO BALÍSTICO",
-                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: +3\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
-                "requirements": ""
-            },
-            "31": {
-                "title": "AURICULARES DE COMUNICACIÓN",
-                "description": "\n\n[size=24]Inteligencia: +1\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: +2\nSigilo: 0[/size]",
-                "requirements": ""
-            },
-            "32": {
-                "title": "GANCHO DE AGARRE",
-                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: +3\nCarisma: 0\nSigilo: 0[/size]",
-                "requirements": ""
-            },
-            "33": {
-                "title": "ENTREGA DE SUMINISTROS",
-                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: +1\nMovilidad: 0\nCarisma: +1\nSigilo: 0[/size]",
-                "requirements": ""
-            },
-            "34": {
-                "title": "POTENCIADOR NEURONAL",
-                "description": "[size=24]Inteligencia: +3\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
-                "requirements": ""
-            },
-            "35": {
-                "title": "JUEGO DE GANZÚAS",
-                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: +3[/size]",
-                "requirements": ""
-            },
-            "36": {
-                "title": "KIT DE MASCARADA",
-                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: +2\nSigilo: +2[/size]",
-                "requirements": ""
-            },
-            "37": {
-                "title": "BOTAS VELOCES",
-                "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: +2\nCarisma: 0\nSigilo: 0[/size]",
-                "requirements": ""
-            },
-            "38": {
-                "title": "GUANTELETE CIBERNÉTICO",
-                "description": "[size=24]Inteligencia: +1\nFuerza: +2\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
-                "requirements": ""
-            },
-            "39": {
-                "title": "ESCUDO DE DRONES",
-                "description": "[size=24]Inteligencia: +2\nFuerza: 0\nResistencia: +2\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
-                "requirements": ""
-            },
-            "40": {
-                "title": "BLASÓN DE GUERRA",
-                "description": "[size=24]Inteligencia: 0\nFuerza: +1\nResistencia: +2\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
-                "requirements": ""
-            }
-        }
+    "0": {
+        "title": "BIENVENIDO",
+        "description": "Selecciona una opci\u00f3n para ver m\u00e1s detalles.",
+        "requirements": ""
+    },
+    "1": {
+        "title": "PATRULLAR",
+        "description": "Vigilancia general de la ciudad. Asigna h\u00e9roes para patrullar diferentes zonas y prevenir actividades criminales.",
+        "requirements": ""
+    },
+    "2": {
+        "title": "LUCHAR",
+        "description": "Enfrentamiento directo contra villanos. Selecciona h\u00e9roes para combatir amenazas espec\u00edficas.",
+        "requirements": ""
+    },
+    "3": {
+        "title": "A\u00d1ADIR",
+        "description": "Herramienta de creaci\u00f3n. Permite a\u00f1adir eventos personalizados con los recursos predefinidos del gestor.",
+        "requirements": ""
+    },
+    "4": {
+        "title": "VER EVENTOS",
+        "description": "Revisa el historial de eventos planificados y gesti\u00f3nalos a conveniencia.",
+        "requirements": ""
+    },
+    "5": {
+        "title": "VIGILANCIA EN C\u00c1RCEL",
+        "description": "Patrulla la prisi\u00f3n de m\u00e1xima seguridad. Previene fugas de villanos peligrosos.",
+        "requirements": ""
+    },
+    "6": {
+        "title": "ACTIVIDAD SOSPECHOSA",
+        "description": "Investigaci\u00f3n de movimientos inusuales en zonas residenciales. Podr\u00eda tratarse de preparativos para un crimen.",
+        "requirements": ""
+    },
+    "7": {
+        "title": "SABOTAJE INDUSTRIAL",
+        "description": "Protecci\u00f3n de instalaciones cr\u00edticas contra ataques terroristas o sabotaje.",
+        "requirements": ""
+    },
+    "8": {
+        "title": "M\u00c1S OPCIONES",
+        "description": "Ver m\u00e1s opciones de patrullaje disponibles.",
+        "requirements": ""
+    },
+    "9": {
+        "title": "ESCOLTA VIP",
+        "description": "Protecci\u00f3n de figuras importantes durante eventos p\u00fablicos o traslados.",
+        "requirements": ""
+    },
+    "10": {
+        "title": "ROBO EN MUSEO",
+        "description": "Prevenci\u00f3n de robos en el museo de la ciudad. Artefactos valiosos en peligro.",
+        "requirements": ""
+    },
+    "11": {
+        "title": "RESCATE POR SECUESTRO",
+        "description": "Operaci\u00f3n de rescate de civiles secuestrados por organizaciones criminales.",
+        "requirements": ""
+    },
+    "12": {
+        "title": "VOLVER",
+        "description": "Regresar al men\u00fa anterior de opciones de patrullaje.",
+        "requirements": ""
+    },
+    "13": {
+        "title": "VILLANO",
+        "description": "Enfrentamiento directo contra un villano poderoso con habilidades especiales. Cada villano requiere una estrategia espec\u00edfica basada en sus debilidades y patrones de ataque \u00fanicos.",
+        "requirements": ""
+    },
+    "14": {
+        "title": "BANDA CRIMINAL",
+        "description": "Combate contra una organizaci\u00f3n criminal bien estructurada. La banda opera con t\u00e1cticas coordinadas y roles definidos entre sus miembros.",
+        "requirements": ""
+    },
+    "15": {
+        "title": "ATAQUE A BASE ENEMIGA",
+        "description": "Asalto ofensivo a una base enemiga fuertemente defendida. Operaci\u00f3n de infiltraci\u00f3n que requiere neutralizar sistemas de seguridad y defensores.",
+        "requirements": ""
+    },
+    "16": {
+        "title": "AMENAZA DESCONOCIDA",
+        "description": "Enfrentamiento contra una entidad de origen y capacidades misteriosas. Situaci\u00f3n impredecible que exige adaptaci\u00f3n constante y an\u00e1lisis r\u00e1pido.",
+        "requirements": ""
+    },
+    "17": {
+        "title": "CELESTIAL",
+        "description": "\nGuardi\u00e1n alado que vigila desde los cielos.\n\n[size=24]Inteligencia: 4/10\nFuerza: 2/10\nResistencia: 3/10\nMovilidad: 1/10\nCarisma: 5/10\nSigilo: 0/10[/size]",
+        "requirements": ""
+    },
+    "18": {
+        "title": "SENTINEL",
+        "description": "\n\nLa espada de la justicia. Combina fuerza marcial con una velocidad implacable.\n\n[size=24]Inteligencia: 0/10\nFuerza: 7/10\nResistencia: 2/10\nMovilidad: 6/10\nCarisma: 0/10\nSigilo: 0/10[/size]",
+        "requirements": ""
+    },
+    "19": {
+        "title": "C\u00d3SMICO",
+        "description": "\nCanaliza la energ\u00eda de las tormentas y el espacio. Un poder inestable pero devastador.\n\n[size=24]Inteligencia: 2/10\nFuerza: 0/10\nResistencia: 8/10\nMovilidad: 0/10\nCarisma: 0/10\nSigilo: 5/10[/size]",
+        "requirements": ""
+    },
+    "20": {
+        "title": "RADIANTE",
+        "description": "\nBrilla con la intensidad del sol. Ciega a sus enemigos y purifica la corrupci\u00f3n.\n\n[size=24]Inteligencia: 2/10\nFuerza: 0/10\nResistencia: 5/10\nMovilidad: 1/10\nCarisma: 7/10\nSigilo: 0/10[/size]",
+        "requirements": ""
+    },
+    "21": {
+        "title": "ATLANTE",
+        "description": "\nSoberano de las profundidades. Controla las mareas y domina el combate acu\u00e1tico.\n\n[size=24]Inteligencia: 0/10\nFuerza: 7/10\nResistencia: 6/10\nMovilidad: 2/10\nCarisma: 0/10\nSigilo: 3/10[/size]",
+        "requirements": ""
+    },
+    "22": {
+        "title": "DRAG\u00d3N",
+        "description": "\nPosee la furia y el fuego de los dragones ancestrales. Una fuerza de la naturaleza imparable.\n\n[size=24]Inteligencia: 0/10\nFuerza: 8/10\nResistencia: 5/10\nMovilidad: 0/10\nCarisma: 2/10\nSigilo: 0/10[/size]",
+        "requirements": ""
+    },
+    "23": {
+        "title": "RAPTOR",
+        "description": "\nDepredador a\u00e9reo de vista aguda. Ataca con precisi\u00f3n letal desde las alturas.\n\n[size=24]Inteligencia: 5/10\nFuerza: 2/10\nResistencia: 0/10\nMovilidad: 7/10\nCarisma: 0/10\nSigilo: 4/10[/size]",
+        "requirements": ""
+    },
+    "24": {
+        "title": "TECN\u00d3PATA",
+        "description": "\nManipula la realidad en fragmentos. Sus habilidades desconciertan y desorientan al enemigo.\n\n[size=24]Inteligencia: 8/10\nFuerza: 0/10\nResistencia: 0/10\nMovilidad: 1/10\nCarisma: 2/10\nSigilo: 6/10[/size]",
+        "requirements": ""
+    },
+    "25": {
+        "title": "COMANDANTE",
+        "description": "\nLa cima de la evoluci\u00f3n humana. Estratega brillante y l\u00edder nato en el campo de batalla.\n\n[size=24]Inteligencia: 6/10\nFuerza: 1/10\nResistencia: 2/10\nMovilidad: 1/10\nCarisma: 5/10\nSigilo: 0/10[/size]",
+        "requirements": ""
+    },
+    "26": {
+        "title": "JUGGERNAUT",
+        "description": "\nUna defensa impenetrable. Su fuerza y resistencia son legendarias entre los h\u00e9roes.\n\n[size=24]Inteligencia: 0/10\nFuerza: 6/10\nResistencia: 9/10\nMovilidad: 0/10\nCarisma: 0/10\nSigilo: 0/10[/size]",
+        "requirements": ""
+    },
+    "27": {
+        "title": "VELOCISTA",
+        "description": "\nSiempre avanza hacia adelante. Su agilidad y punter\u00eda nunca fallan.\n\n[size=24]Inteligencia: 4/10\nFuerza: 1/10\nResistencia: 1/10\nMovilidad: 9/10\nCarisma: 0/10\nSigilo: 5/10[/size]",
+        "requirements": ""
+    },
+    "28": {
+        "title": "CAMPE\u00d3N",
+        "description": "\nGuerrero divino que decide el destino de las batallas. S\u00edmbolo de victoria y honor.\n\n[size=24]Inteligencia: 0/10\nFuerza: 5/10\nResistencia: 5/10\nMovilidad: 0/10\nCarisma: 5/10\nSigilo: 0/10[/size]",
+        "requirements": ""
+    },
+    "29": {
+        "title": "ANCLA CIBERN\u00c9TICA",
+        "description": "[size=24]Inteligencia: +2\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: +1[/size]",
+        "requirements": ""
+    },
+    "30": {
+        "title": "CHALECO BAL\u00cdSTICO",
+        "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: +3\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
+        "requirements": ""
+    },
+    "31": {
+        "title": "AURICULARES DE COMUNICACI\u00d3N",
+        "description": "\n\n[size=24]Inteligencia: +1\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: +2\nSigilo: 0[/size]",
+        "requirements": ""
+    },
+    "32": {
+        "title": "GANCHO DE AGARRE",
+        "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: +3\nCarisma: 0\nSigilo: 0[/size]",
+        "requirements": ""
+    },
+    "33": {
+        "title": "ENTREGA DE SUMINISTROS",
+        "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: +1\nMovilidad: 0\nCarisma: +1\nSigilo: 0[/size]",
+        "requirements": ""
+    },
+    "34": {
+        "title": "POTENCIADOR NEURONAL",
+        "description": "[size=24]Inteligencia: +3\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
+        "requirements": ""
+    },
+    "35": {
+        "title": "JUEGO DE GANZ\u00daAS",
+        "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: +3[/size]",
+        "requirements": ""
+    },
+    "36": {
+        "title": "KIT DE MASCARADA",
+        "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: 0\nCarisma: +2\nSigilo: +2[/size]",
+        "requirements": ""
+    },
+    "37": {
+        "title": "BOTAS VELOCES",
+        "description": "[size=24]Inteligencia: 0\nFuerza: 0\nResistencia: 0\nMovilidad: +2\nCarisma: 0\nSigilo: 0[/size]",
+        "requirements": ""
+    },
+    "38": {
+        "title": "GUANTELETE CIBERN\u00c9TICO",
+        "description": "[size=24]Inteligencia: +1\nFuerza: +2\nResistencia: 0\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
+        "requirements": ""
+    },
+    "39": {
+        "title": "ESCUDO DE DRONES",
+        "description": "[size=24]Inteligencia: +2\nFuerza: 0\nResistencia: +2\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
+        "requirements": ""
+    },
+    "40": {
+        "title": "BLAS\u00d3N DE GUERRA",
+        "description": "[size=24]Inteligencia: 0\nFuerza: +1\nResistencia: +2\nMovilidad: 0\nCarisma: 0\nSigilo: 0[/size]",
+        "requirements": ""
+    }
+}

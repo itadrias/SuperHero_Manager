@@ -39,8 +39,8 @@
         "forbidden": [],
         "required": [
             {
-                "id": 35,
-                "reason": "Requisito de Misión: Se necesita el Juego de Ganzúas para sortear la seguridad en el 'Robo en Museo'."
+                "id": 36,
+                "reason": "Requisito de Misión: Se necesita el Kit de Mascarada para ir de incógnito en el 'Robo en Museo'."
             }
         ]
     },
@@ -111,7 +111,7 @@
         "forbidden": [
             {
                 "id": 33,
-                "reason": "Conflicto: La radiación inestable de Cósmico corrompe la comida y medicina de la Entrega de Suministros."
+                "reason": "Conflicto: La radiación inestable de Cósmico corrompe los recursos de la Entrega de Suministros."
             },
             {
                 "id": 31,
@@ -196,7 +196,7 @@
         "forbidden": [
             {
                 "id": 19,
-                "reason": "Conflicto: El Comandante no puede establecer estrategias si la radio (Auriculares) falla por la energía de Cósmico."
+                "reason": "Conflicto: El Comandante no puede establecer estrategias si los Auriculares de Comunicación fallan por la energía de Cósmico."
             }
         ],
         "required": [
