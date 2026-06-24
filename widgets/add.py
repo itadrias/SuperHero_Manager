@@ -80,7 +80,7 @@ class enter_name(BoxLayout):
     def to_accept(self, instance):
         """Valida la entrada y llama al callback con el nombre."""
         name = self.name.text
-        if name.strip():
+        if name.strip() and len(name) <= 30:
             self.popup.dismiss()
             if self.parent:
                 self.parent.remove_widget(self)
